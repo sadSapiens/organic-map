@@ -74,7 +74,7 @@
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.5s ease-in-out;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
   transform: translateY(-200%);
 }
 
@@ -89,6 +89,10 @@
 
 .cover__guide-info-description {
   font-size: 16px;
+}
+
+.cover__address:nth-child(1n+1) {
+  margin-left: 10px;
 }
 
 .cover__address-button {
@@ -119,6 +123,39 @@
 }
 
 .cover__address-button_text {
+  margin-left: 0;
+  font-size: 0;
+  transition: all 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.cover__filter-button {
+  padding: 10px;
+  min-width: 50px;
+  min-height: 40px;
+  font-size: 14px;
+  color: white;
+  background-color: #27ae60;
+  transition: min-width 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.cover__filter-button:hover {
+  min-width: 120px;
+  background: linear-gradient(270deg, #10ac84, #222f3e);
+  background-size: 400% 400%;
+  animation: guideHover 3s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+
+.cover__filter-button:hover .cover__filter-button_text {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.cover__filter-button_image {
+  width: 30px;
+  height: 30px;
+}
+
+.cover__filter-button_text {
   margin-left: 0;
   font-size: 0;
   transition: all 0.5s cubic-bezier(0.5, 1, 0.89, 1);

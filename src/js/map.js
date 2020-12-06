@@ -2,6 +2,7 @@ $(document).ready(function() {
     mapboxgl.accessToken = 'pk.eyJ1IjoidGRzYWludCIsImEiOiJja2k4aTM2ZWwwNjB5MnRsY291OWl3OWlmIn0.aVPzSWzdwwYet2-GHZNWkQ';
 
 
+
     // var latitude = 75
     // var longitude = 41
 
@@ -15,43 +16,56 @@ $(document).ready(function() {
         container: 'map', // container id
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
         center: [75, 41.1], // starting position [lng, lat]
-        maxZoom: 25,
+        maxZoom: 18,
         minZoom: 6,
         zoom: 6,
         attributionControl: false,
     });
 
-    var marker = new mapboxgl.Marker()
+    map.addControl(new MapboxLanguage({
+        defaultLanguage: 'ru'
+    }));
+
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'bottom-right');
+
+    var scale = new mapboxgl.ScaleControl({
+        maxWidth: 100,
+        unit: 'imperial'
+    });
+    map.addControl(scale);
+    scale.setUnit('metric');
+    var talas = new mapboxgl.Marker()
         .setLngLat([72.22198178579627, 42.55788484633985])
         .setPopup(new mapboxgl.Popup().setHTML("<h1>Талас</h1>"))
         .addTo(map);
 
-    marker = new mapboxgl.Marker()
+    var naryn = new mapboxgl.Marker()
         .setLngLat([75.98404082744595, 41.426978414966136])
         .setPopup(new mapboxgl.Popup().setHTML("<h1>Нарын</h1>"))
         .addTo(map);
 
-    marker = new mapboxgl.Marker()
+    var batken = new mapboxgl.Marker()
         .setLngLat([70.8213472324224, 40.055259930336526])
         .setPopup(new mapboxgl.Popup().setHTML("<h1>Баткен</h1>"))
         .addTo(map);
 
-    marker = new mapboxgl.Marker()
+    var bishkek = new mapboxgl.Marker()
         .setLngLat([74.56714000979905, 42.87584732690511])
         .setPopup(new mapboxgl.Popup().setHTML("<h1>Бишкек</h1>"))
         .addTo(map);
 
-    marker = new mapboxgl.Marker()
+    var osh = new mapboxgl.Marker()
         .setLngLat([72.8160644422592, 40.513331776324634])
         .setPopup(new mapboxgl.Popup().setHTML("<h1>Ош</h1>"))
         .addTo(map);
 
-    marker = new mapboxgl.Marker()
+    var djal = new mapboxgl.Marker()
         .setLngLat([72.98071823329533, 40.93441319677905])
         .setPopup(new mapboxgl.Popup().setHTML("<h1>Джалал-Абад</h1>"))
         .addTo(map);
 
-    marker = new mapboxgl.Marker()
+    var ik = new mapboxgl.Marker()
         .setLngLat([77.27252433876667, 42.37472733142336])
         .setPopup(new mapboxgl.Popup().setHTML("<h1>Иссык-Куль</h1>"))
         .addTo(map);
@@ -63,8 +77,8 @@ $(document).ready(function() {
         'camera': {
             center: [74.60351506475995, 42.874049104620184],
             zoom: 18,
-            pitch: 45,
-            bearing: 40
+            pitch: 50,
+            bearing: 160
         }
     }];
 
@@ -75,7 +89,8 @@ $(document).ready(function() {
             'camera': {
                 center: [74.56714000979905, 42.87584732690511],
                 zoom: 10,
-                pitch: 100
+                pitch: 50,
+                bearing: 10
             }
         }, {
             'id': 2,
@@ -84,8 +99,8 @@ $(document).ready(function() {
             'camera': {
                 center: [72.22198178579627, 42.55788484633985],
                 zoom: 12,
-                pitch: 50,
-                bearing: 40
+                pitch: 70,
+                bearing: 300
             }
         }, {
             'id': 3,
@@ -94,8 +109,8 @@ $(document).ready(function() {
             'camera': {
                 center: [72.98071823329533, 40.93441319677905],
                 zoom: 12,
-                pitch: 50,
-                bearing: -40
+                pitch: 90,
+                bearing: 120
             }
         }, {
             'id': 4,
@@ -104,8 +119,8 @@ $(document).ready(function() {
             'camera': {
                 center: [72.8160644422592, 40.513331776324634],
                 zoom: 12,
-                pitch: 50,
-                bearing: 40
+                pitch: 90,
+                bearing: 230
             }
         },
         {
@@ -115,8 +130,8 @@ $(document).ready(function() {
             'camera': {
                 center: [70.8213472324224, 40.055259930336526],
                 zoom: 12,
-                pitch: 50,
-                bearing: 100
+                pitch: 20,
+                bearing: 160
             }
         },
         {
@@ -126,8 +141,8 @@ $(document).ready(function() {
             'camera': {
                 center: [75.98404082744595, 41.426978414966136],
                 zoom: 12,
-                pitch: 50,
-                bearing: -100
+                pitch: 150,
+                bearing: 450
             }
         },
         {
@@ -136,9 +151,9 @@ $(document).ready(function() {
             'description': "Иссы́к-Ку́ль (кирг. Ысык-Көл — «горячее озеро») — самое большое озеро в Киргизии, бессточное, входит в 30 крупнейших по площади озёр мира и на седьмом месте в списке самых глубоких озёр. Расположено в северо-восточной части республики, между хребтами Северного Тянь-Шаня: Кюнгёй-Ала-Тоо и Терскей Ала-Тоо на высоте 1608 м над уровнем моря[1].",
             'camera': {
                 center: [77.27252433876667, 42.37472733142336],
-                zoom: 12,
-                pitch: 50,
-                bearing: 15
+                zoom: 8,
+                pitch: 150,
+                bearing: 500
             }
         },
         {
@@ -187,7 +202,7 @@ $(document).ready(function() {
                     $('div.cover__guide').find('.cover__guide-info_active')
                         .removeClass('cover__guide-info_active');
                 }
-            }, 100); // After callback, show the location for N seconds.
+            }, 6000); // After callback, show the location for N seconds.
             if (index === 7) {
                 clearTimeout(myvar);
             }
@@ -244,6 +259,5 @@ $(document).ready(function() {
             }
         }, );
     });
-
 
 });

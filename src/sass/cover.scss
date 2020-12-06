@@ -55,7 +55,7 @@
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            transition: all 0.5s ease-in-out;
+            transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
             transform: translateY(-200%);
             &_active {
                 transform: translateY(0);
@@ -70,6 +70,9 @@
         }
     }
     &__address {
+        &:nth-child(1n+1) {
+            margin-left: 10px;
+        }
         &-button {
             padding: 10px;
             min-width: 50px;
@@ -84,6 +87,36 @@
                 background-size: 400% 400%;
                 animation: guideHover 2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
                 .cover__address-button_text {
+                    font-size: 16px;
+                    margin-left: 5px;
+                }
+            }
+            &_image {
+                width: 30px;
+                height: 30px;
+            }
+            &_text {
+                margin-left: 0;
+                font-size: 0;
+                transition: all .5s $squad_anim;
+            }
+        }
+    }
+    &__filter {
+        &-button {
+            padding: 10px;
+            min-width: 50px;
+            min-height: 40px;
+            font-size: 14px;
+            color: white;
+            background-color: #27ae60;
+            transition: min-width .5s $squad_anim;
+            &:hover {
+                min-width: 120px;
+                background: linear-gradient(270deg, #10ac84, #222f3e);
+                background-size: 400% 400%;
+                animation: guideHover 3s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+                .cover__filter-button_text {
                     font-size: 16px;
                     margin-left: 5px;
                 }
