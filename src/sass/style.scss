@@ -1,0 +1,21 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style-type: none;
+}
+
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.container {
+    min-width: 1170px;
+    margin: 0 auto;
+}
+
+@import "map";
+@import "modals";
+@import "cover";
+@import "buttons";
+@import "animation";
+@import "scroll";

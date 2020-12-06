@@ -1,0 +1,125 @@
+@keyframes guideHover {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.cover__menu {
+  display: flex;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.cover__guide:nth-child(1n+1) {
+  margin-left: 10px;
+}
+
+.cover__guide-button {
+  padding: 10px;
+  min-width: 50px;
+  min-height: 40px;
+  font-size: 14px;
+  color: white;
+  background-color: #27ae60;
+  transition: min-width 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.cover__guide-button:hover {
+  min-width: 170px;
+  background: linear-gradient(270deg, #2ecc71, #1abc9c);
+  background-size: 400% 400%;
+  animation: guideHover 2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+
+.cover__guide-button:hover .cover__guide-button_text {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.cover__guide-button_image {
+  width: 30px;
+  height: 30px;
+}
+
+.cover__guide-button_text {
+  margin-left: 0;
+  font-size: 0;
+  transition: all 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.cover__guide-info {
+  padding: 5px;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  background-color: white;
+  width: 200px;
+  height: 400px;
+  box-shadow: 2px 2px 10px rgba(3, 22, 34, 0.6);
+  overflow-y: visible;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-200%);
+}
+
+.cover__guide-info_active {
+  transform: translateY(0);
+}
+
+.cover__guide-info-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.cover__guide-info-description {
+  font-size: 16px;
+}
+
+.cover__address-button {
+  padding: 10px;
+  min-width: 50px;
+  min-height: 40px;
+  font-size: 14px;
+  color: white;
+  background-color: #27ae60;
+  transition: min-width 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.cover__address-button:hover {
+  min-width: 170px;
+  background: linear-gradient(270deg, #2ecc71, #1abc9c);
+  background-size: 400% 400%;
+  animation: guideHover 2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+
+.cover__address-button:hover .cover__address-button_text {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.cover__address-button_image {
+  width: 30px;
+  height: 30px;
+}
+
+.cover__address-button_text {
+  margin-left: 0;
+  font-size: 0;
+  transition: all 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+}

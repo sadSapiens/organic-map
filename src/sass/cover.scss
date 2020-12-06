@@ -1,0 +1,102 @@
+@import "animation";
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    &__menu {
+        display: flex;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    &__guide {
+        &:nth-child(1n+1) {
+            margin-left: 10px;
+        }
+        &-button {
+            padding: 10px;
+            min-width: 50px;
+            min-height: 40px;
+            font-size: 14px;
+            color: white;
+            background-color: #27ae60;
+            transition: min-width .5s $squad_anim;
+            &:hover {
+                min-width: 170px;
+                background: linear-gradient(270deg, #2ecc71, #1abc9c);
+                background-size: 400% 400%;
+                animation: guideHover 2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+                .cover__guide-button_text {
+                    font-size: 16px;
+                    margin-left: 5px;
+                }
+            }
+            &_image {
+                width: 30px;
+                height: 30px;
+            }
+            &_text {
+                margin-left: 0;
+                font-size: 0;
+                transition: all .5s $squad_anim;
+            }
+        }
+        &-info {
+            padding: 5px;
+            position: fixed;
+            top: 5px;
+            left: 5px;
+            background-color: white;
+            width: 200px;
+            height: 400px;
+            box-shadow: 2px 2px 10px rgba($color: #031622, $alpha: .6);
+            overflow-y: visible;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.5s ease-in-out;
+            transform: translateY(-200%);
+            &_active {
+                transform: translateY(0);
+            }
+            &-title {
+                font-size: 18px;
+                font-weight: 700;
+            }
+            &-description {
+                font-size: 16px;
+            }
+        }
+    }
+    &__address {
+        &-button {
+            padding: 10px;
+            min-width: 50px;
+            min-height: 40px;
+            font-size: 14px;
+            color: white;
+            background-color: #27ae60;
+            transition: min-width .5s $squad_anim;
+            &:hover {
+                min-width: 170px;
+                background: linear-gradient(270deg, #2ecc71, #1abc9c);
+                background-size: 400% 400%;
+                animation: guideHover 2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+                .cover__address-button_text {
+                    font-size: 16px;
+                    margin-left: 5px;
+                }
+            }
+            &_image {
+                width: 30px;
+                height: 30px;
+            }
+            &_text {
+                margin-left: 0;
+                font-size: 0;
+                transition: all .5s $squad_anim;
+            }
+        }
+    }
+}
