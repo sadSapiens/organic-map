@@ -1,8 +1,150 @@
-#marker {
-    background-image: url('../icons/home.svg');
+#apple,
+#apricots,
+#barley,
+#beans,
+#beetroot,
+#cherries,
+#corn,
+#cotton,
+#currants,
+#pear,
+#grapes,
+#hay,
+#peach,
+#potatoes,
+#raspberry,
+#rice,
+#sugar-beet,
+#sunflower,
+#vegetables,
+#watermelons,
+#wheat {
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
+    animation: markerAnim 2s ease infinite;
+    &:hover {
+        &::before {
+            background: #000;
+            border-radius: 2px;
+            color: #fff;
+            content: 'яблоко';
+            font-size: 14px;
+            padding: 6px 10px;
+            top: -40px;
+            position: absolute;
+            white-space: nowrap;
+            z-index: 999;
+        }
+        &::after {
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid #2ecc71;
+            border-left: 6px solid transparent;
+            content: '';
+            height: 0;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            width: 0;
+        }
+    }
+}
+
+#apple {
+    background-image: url('../icons/markers/apple.png');
+}
+
+#apricots {
+    background-image: url('../icons/markers/apricot.png');
+}
+
+#barley {
+    background-image: url('../icons/markers/barley.jpg');
+}
+
+#beans {
+    background-image: url('../icons/markers/beans.jpg');
+}
+
+#beetroot {
+    background-image: url('../icons/markers/beetroot.jpg');
+}
+
+#cherries {
+    background-image: url('../icons/markers/cherries.jpg');
+}
+
+#corn {
+    background-image: url('../icons/markers/corn.jpg');
+}
+
+#cotton {
+    background-image: url('../icons/markers/cotton.jpg');
+}
+
+#currants {
+    background-image: url('../icons/markers/currants.jpg');
+}
+
+#pear {
+    background-image: url('../icons/markers/pear.jpg');
+}
+
+#grapes {
+    background-image: url('../icons/markers/grapes.jpg');
+}
+
+#hay {
+    background-image: url('../icons/markers/hay.jpg');
+}
+
+#peach {
+    background-image: url('../icons/markers/peach.jpg');
+}
+
+#potatoes {
+    background-image: url('../icons/markers/potatoes.jpg');
+}
+
+#raspberry {
+    background-image: url('../icons/markers/raspberry.jpg');
+}
+
+#rice {
+    background-image: url('../icons/markers/rice.jpg');
+}
+
+#sugar-beet {
+    background-image: url('../icons/markers/sugar-beet.jpg');
+}
+
+#sunflower {
+    background-image: url('../icons/markers/sunflower.jpg');
+}
+
+#vegetables {
+    background-image: url('../icons/markers/vegetables.jpg');
+}
+
+#watermelons {
+    background-image: url('../icons/markers/watermelons.jpg');
+}
+
+#wheat {
+    background-image: url('../icons/markers/wheat.jpg');
+}
+
+@keyframes markerAnim {
+    0%,
+    100% {
+        box-shadow: 0px 0px 20px #2ecc71;
+    }
+    50% {
+        box-shadow: 0px 0px 0px #2ecc71;
+    }
 }
