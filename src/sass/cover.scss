@@ -10,6 +10,11 @@
         top: 5px;
         right: 5px;
     }
+    &__satellite {
+        &:nth-child(1n+1) {
+            margin-left: 10px;
+        }
+    }
     &__guide {
         &:nth-child(1n+1) {
             margin-left: 10px;
@@ -103,6 +108,9 @@
         }
     }
     &__filter {
+        &-wrapper {
+            display: table;
+        }
         &-button {
             padding: 10px;
             min-width: 50px;
@@ -131,28 +139,34 @@
                 transition: all .5s $squad_anim;
             }
         }
-        &-menu {
-            padding: 10px;
-            padding-bottom: 30px;
+        &-menu,
+        &-submenu {
+            padding: 10px 0 0;
             min-width: 250px;
             min-height: 250px;
             list-style-type: none;
-            position: absolute;
+            position: fixed;
             top: 70px;
             right: 120px;
             border-radius: 10px;
             background-color: white;
             box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: .7);
             overflow: hidden;
+            transition: all .5s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateX(200%);
+            z-index: 1;
+            &_active {
+                transform: translateX(0%);
+            }
             &-btn {
-                min-width: 150px;
+                margin: 0 auto;
+                margin-top: 20px;
+                min-width: 100%;
                 min-height: 40px;
                 padding: 10px;
                 font-size: 14px;
                 color: white;
-                top: 305px;
-                right: 175px;
-                position: absolute;
+                border-radius: 0 !important;
                 background-color: #27ae60;
                 transition: min-width .5s $squad_anim;
                 z-index: 10;
@@ -160,7 +174,7 @@
             &_item {
                 display: flex;
                 align-items: center;
-                padding: 5px;
+                padding: 5px 10px;
                 color: black;
                 cursor: pointer;
                 &-name {
@@ -171,8 +185,24 @@
                     margin: 0;
                 }
             }
-            &_active {
-                transform: translateX(0);
+        }
+        &-submenu {
+            display: none !important;
+            display: flex;
+            flex-wrap: wrap;
+            transform: translateX(0);
+            width: 410px;
+            min-height: 260px;
+            z-index: 0;
+            &_item {
+                min-width: 40px;
+            }
+            &-name {
+                margin: 0;
+                margin-right: 5px;
+            }
+            &-check {
+                margin: 0;
             }
         }
     }
@@ -188,4 +218,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.slide-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 0 !important;
+    position: fixed;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    overflow: visible !important;
+    &-image {
+        width: 50%;
+        height: 50%;
+    }
 }

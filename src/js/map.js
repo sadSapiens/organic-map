@@ -1,8 +1,6 @@
 $(document).ready(function() {
     mapboxgl.accessToken = 'pk.eyJ1IjoidGRzYWludCIsImEiOiJja2k4aTM2ZWwwNjB5MnRsY291OWl3OWlmIn0.aVPzSWzdwwYet2-GHZNWkQ';
-
-
-
+    var clicks = true;
     // var latitude = 75
     // var longitude = 41
     var title = document.getElementById('location-title');
@@ -21,6 +19,8 @@ $(document).ready(function() {
         attributionControl: false,
     });
 
+
+
     // // create the popup
     // var popup = new mapboxgl.Popup({
     //     offset: 25
@@ -29,6 +29,7 @@ $(document).ready(function() {
     // );
 
     var talas = {
+        'talas': 'talas',
         'vegetables': [71.56, 42.66],
         'corn': [71.12, 42.46],
         'apple': [71.54, 42.23],
@@ -41,11 +42,13 @@ $(document).ready(function() {
         'peach': [73.19, 42.42]
     };
     var naryn = {
+        'naryn': 'naryn',
         'barley': [75.07, 41.96],
         'hay': [75.03, 41.71],
         'potatoes': [75.63, 41.81]
     };
     var batken = {
+        'batken': 'batken',
         'corn': [69.58, 39.79],
         'barley': [69.90, 39.99],
         'hay': [69.78, 39.78],
@@ -58,6 +61,7 @@ $(document).ready(function() {
         'rice': [72.28, 39.92]
     };
     var jalal = {
+        'jalal': 'jalal',
         'rice': [70.86, 41.67],
         'wheat': [73.23, 41.31],
         'sunflower': [71.46, 51.58],
@@ -71,6 +75,7 @@ $(document).ready(function() {
         'cotton': [73.43, 41.14],
     };
     var osh = {
+        'osh': 'osh',
         'rice': [72.66, 40.31],
         'apple': [72.70, 40.24],
         'peach': [72.38, 39.57],
@@ -86,6 +91,7 @@ $(document).ready(function() {
         'potatos': [74.49, 40.52, ]
     };
     var chui = {
+        'chui': 'chui',
         'barley': [74.22, 42.09],
         'sunflower': [73.69, 42.97],
         'wheat': [74.02, 42.95],
@@ -102,6 +108,7 @@ $(document).ready(function() {
         'hay': [74.22, 42.24],
     };
     var issyk = {
+        'issyk': 'issyk',
         'raspberry': [76.25, 42.23],
         'beans': [77.13, 42.03],
         'hay': [77.66, 42.08],
@@ -154,15 +161,15 @@ $(document).ready(function() {
     // .setPopup(popup) // sets a popup on this marker
     // .addTo(map);
 
-    map.on('mousemove', function(e) {
-        document.getElementById('info').innerHTML =
-            // e.point is the x, y coordinates of the mousemove event relative
-            // to the top-left corner of the map
-            JSON.stringify(e.point) +
-            '<br />' +
-            // e.lngLat is the longitude, latitude geographical position of the event
-            JSON.stringify(e.lngLat.wrap());
-    });
+    // map.on('mousemove', function(e) {
+    //     document.getElementById('info').innerHTML =
+    //         // e.point is the x, y coordinates of the mousemove event relative
+    //         // to the top-left corner of the map
+    //         JSON.stringify(e.point) +
+    //         '<br />' +
+    //         // e.lngLat is the longitude, latitude geographical position of the event
+    //         JSON.stringify(e.lngLat.wrap());
+    // });
 
     map.addControl(new MapboxLanguage({
         defaultLanguage: 'ru'
@@ -230,9 +237,9 @@ $(document).ready(function() {
             'description': "столица Киргизии, город республиканского значения, центр Чуйской области, в состав которой не входит. Крупнейший по численности населения город Киргизии — 1 053 900 чел. (2020)[2]. Первые русские поселенцы поселились на месте разрушенной крепости Кокандского ханства в 1868 году[5]. Город расположен на севере Киргизии в Чуйской долине на высоте 700—900 м над уровнем моря, в 40 км севернее Киргизского хребта у предгорий Тянь-Шаня. В 25 км от границы с Казахстаном. Бишкек соединён с Туркестано-Сибирской железной дорогой. Территория города составляет 127 км²[6] или 160 км²[1].",
             'camera': {
                 center: [74.56714000979905, 42.87584732690511],
-                zoom: 7,
-                pitch: 50,
-                bearing: 10
+                zoom: 12,
+                pitch: 80,
+                bearing: 0
             }
         }, {
             'id': 2,
@@ -240,9 +247,9 @@ $(document).ready(function() {
             'description': "Талас (до 1944 года — Дмитриевка) — город областного значения в Киргизии, административный центр Таласской области и района. Город был основан в 1877 году русскими переселенцами в центральной части Таласской долины на левом берегу реки Талас, на месте древнего поселения времён Восточно-тюркского каганата, на высоте 1200 метров над уровнем моря. Ранее назывался Дмитриевка.В 1944 году был присвоен статус города .29 октября 1958 года утратил статус города областного подчинения[3].В город Талас 2 февраля 1987 года включено село Джаны - Чек из сельсовета Сорок лет Октября Таласского района[4].",
             'camera': {
                 center: [72.22198178579627, 42.55788484633985],
-                zoom: 9,
+                zoom: 12,
                 pitch: 70,
-                bearing: 300
+                bearing: -200
             }
         }, {
             'id': 3,
@@ -250,9 +257,9 @@ $(document).ready(function() {
             'description': "Джала́л-Аба́д[3] (кирг. Жалал-Абад) — третий по величине город в Киргизии, административный центр Джалал-Абадской области. Официальный сайт города http://jalabad.com.Население — более 113 900 человек[1]. Расположен в Ферганской долине. Недалеко от города протекает река Кугарт, правый приток реки Кара-Дарья.",
             'camera': {
                 center: [72.98071823329533, 40.93441319677905],
-                zoom: 11,
-                pitch: 90,
-                bearing: 120
+                zoom: 13,
+                pitch: 50,
+                bearing: 190
             }
         }, {
             'id': 4,
@@ -260,9 +267,9 @@ $(document).ready(function() {
             'description': "Ош (кирг. Ош) — город республиканского подчинения в Киргизии, административный центр Ошской области. Ош — второй по численности населения город Киргизии после Бишкека, крупнейший город юга страны, официально именуемый «южной столицей». 18 декабря 2018 года город Ош объявлен Культурной столицей тюркского мира на 2019 год[5].",
             'camera': {
                 center: [72.8160644422592, 40.513331776324634],
-                zoom: 10,
-                pitch: 90,
-                bearing: 230
+                zoom: 11,
+                pitch: 40,
+                bearing: 100
             }
         },
         {
@@ -271,8 +278,8 @@ $(document).ready(function() {
             'description': "Батке́н (кирг. Баткен) — город в Киргизии, административный центр Баткенской области и района. Есть два варианта происхождения топонима: Название может происходит от авест. «barź-: bŗź-: barəšnu-» — «высота, вершина», от персидского «كوه»(kuh) — «гора» и «-an» – «суффикс множественного числа» — «горные высоты или горные вершины». От др. персидского «Patīkohan» — «верховье горных высот».",
             'camera': {
                 center: [70.8213472324224, 40.055259930336526],
-                zoom: 8,
-                pitch: 20,
+                zoom: 12,
+                pitch: 10,
                 bearing: 160
             }
         },
@@ -282,9 +289,9 @@ $(document).ready(function() {
             'description': "Нары́н (кирг. Нарын) — город в Киргизии, административный центр Нарынской области и Нарынского района.Население — 38 800 человек (2017). Площадь территории города — 40,5 км².",
             'camera': {
                 center: [75.98404082744595, 41.426978414966136],
-                zoom: 14,
-                pitch: 150,
-                bearing: 450
+                zoom: 13,
+                pitch: 80,
+                bearing: 10
             }
         },
         {
@@ -293,9 +300,9 @@ $(document).ready(function() {
             'description': "Иссы́к-Ку́ль (кирг. Ысык-Көл — «горячее озеро») — самое большое озеро в Киргизии, бессточное, входит в 30 крупнейших по площади озёр мира и на седьмом месте в списке самых глубоких озёр. Расположено в северо-восточной части республики, между хребтами Северного Тянь-Шаня: Кюнгёй-Ала-Тоо и Терскей Ала-Тоо на высоте 1608 м над уровнем моря[1].",
             'camera': {
                 center: [77.27252433876667, 42.37472733142336],
-                zoom: 12,
-                pitch: 150,
-                bearing: 500
+                zoom: 8,
+                pitch: 20,
+                bearing: 40
             }
         },
         {
@@ -344,7 +351,7 @@ $(document).ready(function() {
                     $('div.cover__guide').find('.cover__guide-info_active')
                         .removeClass('cover__guide-info_active');
                 }
-            }, 6000); // After callback, show the location for N seconds.
+            }, 3000); // After callback, show the location for N seconds.
             if (index === 7) {
                 clearTimeout(myvar);
             }
@@ -356,88 +363,103 @@ $(document).ready(function() {
         playback(0);
     });
 
+    $("#satellite").click(() => {
+        if (clicks) {
+            map.setStyle('mapbox://styles/mapbox/satellite-v9');
+            clicks = false;
+        } else {
+            map.setStyle('mapbox://styles/mapbox/streets-v11');
+            clicks = true;
+        }
+
+    })
+
     $("#address").click(() => {
-        map.flyTo(main_address[0].camera);
-        title.textContent = main_address[0].title;
-        description.textContent = main_address[0].description;
-        map.once('moveend', function() {
-            $('div.cover__guide').find('.cover__guide-info')
-                .addClass('cover__guide-info_active');
-            rotateCamera(0);
-        })
+        if (clicks) {
+            map.flyTo(main_address[0].camera);
+            title.textContent = main_address[0].title;
+            description.textContent = main_address[0].description;
+            map.once('moveend', function() {
+                $('div.cover__guide').find('.cover__guide-info')
+                    .addClass('cover__guide-info_active');
+                clicks = false;
+            });
+        } else {
+            map.flyTo(locations[7].camera);
+            $('div.cover__guide').find('.cover__guide-info_active')
+                .removeClass('cover__guide-info_active');
+            clicks = true;
+        }
+
     });
     $("#check").click(() => {
-        var chui;
-        var naryn;
-        if ($('#naryn').prop('checked') == true) {
-            Object.entries(naryn).forEach(([key, value]) => {
-                naryn = document.createElement('div');
-                naryn.id = key;
-                new mapboxgl.Marker(naryn)
-                    .setLngLat(value)
-                    // .setPopup(popup)
-                    .addTo(map);
-                console.log("Добавлен чуй");
-            });
-        } else if ($('#naryn').prop('checked') == false) {
-            alert("false");
-            Object.entries(naryn).forEach(([key, value]) => {
-                var elem = key
-                $('#' + elem).remove();
-            });
-        }
-        if ($('#chui').prop('checked') == true) {
-            Object.entries(chui).forEach(([key, value]) => {
-                chui = document.createElement('div');
-                chui.id = key;
-                new mapboxgl.Marker(chui)
-                    .setLngLat(value)
-                    // .setPopup(popup)
-                    .addTo(map);
-                console.log("Добавлен чуй");
-            });
-        } else if ($('#chui').prop('checked') == false) {
-            alert("false");
-            Object.entries(chui).forEach(([key, value]) => {
-                var elem = key
-                $('#' + elem).remove();
-            });
+        var cult;
+        var arrObj = ['#chui', '#naryn', '#issyk', '#batken', '#talas', '#osh', '#jalal'];
+        var arrCountrys = [chui, naryn, issyk, batken, talas, osh, jalal];
+
+        for (let index = 0; index <= arrObj.length; index++) {
+            if ($(arrObj[index]).prop('checked') == true) {
+                if (arrObj[index].replace('#', '') == Object.keys(arrCountrys[index])[0]) {
+                    Object.entries(arrCountrys[index]).forEach(([key, value]) => {
+                        if (arrObj[index].replace('#', '') == key) {
+                            return;
+                        } else {
+                            cult = document.createElement('div');
+                            $(cult).addClass(arrObj[index].replace('#', ''));
+                            cult.id = key;
+                            new mapboxgl.Marker(cult)
+                                .setLngLat(value)
+                                .addTo(map);
+                        }
+                    });
+                }
+            } else if ($(arrObj[index]).prop('checked') == false) {
+                $('.' + arrObj[index].replace('#', '')).remove();
+                console.log(index)
+            }
         }
     });
-
-    // map.on('load', function() {
-    //     // Insert the layer beneath any symbol layer.
-    //     var layers = map.getStyle().layers;
-
-    //     map.addLayer({
-    //         'id': '3d-buildings',
-    //         'source': 'composite',
-    //         'source-layer': 'building',
-    //         'filter': ['==', 'extrude', 'true'],
-    //         'type': 'fill-extrusion',
-    //         'minzoom': 15,
-    //         'paint': {
-    //             'fill-extrusion-color': '#27ae60',
-
-    //             // use an 'interpolate' expression to add a smooth transition effect to the
-    //             // buildings as the user zooms in
-    //             'fill-extrusion-height': [
-    //                 'interpolate', ['linear'],
-    //                 ['zoom'],
-    //                 15,
-    //                 0,
-    //                 15.05, ['get', 'height']
-    //             ],
-    //             'fill-extrusion-base': [
-    //                 'interpolate', ['linear'],
-    //                 ['zoom'],
-    //                 15,
-    //                 0,
-    //                 15.05, ['get', 'min_height']
-    //             ],
-    //             'fill-extrusion-opacity': .7
-    //         }
-    //     }, );
+    // Object.entries(naryn).forEach(([key, value]) => {
+    //     naryn = document.createElement('div');
+    //     naryn.id = key;
+    //     new mapboxgl.Marker(naryn)
+    //         .setLngLat(value)
+    //         // .setPopup(popup)
+    //         .addTo(map);
     // });
 
+    map.on('load', function() {
+        // Insert the layer beneath any symbol layer.
+        var layers = map.getStyle().layers;
+
+        map.addLayer({
+            'id': '3d-buildings',
+            'source': 'composite',
+            'source-layer': 'building',
+            'filter': ['==', 'extrude', 'true'],
+            'type': 'fill-extrusion',
+            'minzoom': 15,
+            'paint': {
+                'fill-extrusion-color': '#27ae60',
+
+                // use an 'interpolate' expression to add a smooth transition effect to the
+                // buildings as the user zooms in
+                'fill-extrusion-height': [
+                    'interpolate', ['linear'],
+                    ['zoom'],
+                    15,
+                    0,
+                    15.05, ['get', 'height']
+                ],
+                'fill-extrusion-base': [
+                    'interpolate', ['linear'],
+                    ['zoom'],
+                    15,
+                    0,
+                    15.05, ['get', 'min_height']
+                ],
+                'fill-extrusion-opacity': .7
+            }
+        }, );
+    });
 });
