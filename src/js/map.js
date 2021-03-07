@@ -1,14 +1,36 @@
+var translate = {
+            'apple':'Яблоки',
+            'apricots':'Абрикросы',
+            'barley':'Ячмень',
+            'beans':'Бобовые',
+            'beetroot':'Свекла',
+            'cherries':'Вишня',
+            'corn':'Кукуруза',
+            'cotton':'Хлопок',
+            'currants':'Смородина',
+            'pear':'Груши',
+            'grapes':'Виноград',
+            'hay':'Сено',
+            'peach':'Персики',
+            'potatoes':'Картошка',
+            'raspberry':'Малина',
+            'rice':'Рис',
+            'sugar-beet':'Сахарная свекла',
+            'sunflower':'Подсолнечники',
+            'vegetables':'Овощи',
+            'watermelons':'Арбузы',
+            'wheat':'Пшеница'
+};
+
 $(document).ready(function() {
     mapboxgl.accessToken = 'pk.eyJ1IjoidGRzYWludCIsImEiOiJja2k4aTM2ZWwwNjB5MnRsY291OWl3OWlmIn0.aVPzSWzdwwYet2-GHZNWkQ';
     var clicks = true;
     // var latitude = 75
     // var longitude = 41
-    var title = document.getElementById('location-title');
-    var description = document.getElementById('location-description');
+    var city = document.getElementById('location-city');
+    var country = document.getElementById('location-country');
 
     var info = false;
-
-
     var map = new mapboxgl.Map({
         container: 'map', // container id
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
@@ -18,9 +40,6 @@ $(document).ready(function() {
         zoom: 6,
         attributionControl: false,
     });
-
-
-
     // // create the popup
     // var popup = new mapboxgl.Popup({
     //     offset: 25
@@ -121,40 +140,6 @@ $(document).ready(function() {
         'potatos': [78.42, 42.56]
     };
 
-
-
-
-
-    let arr = new Array();
-    arr = ['apple',
-            'apricots',
-            'barley',
-            'beans',
-            'beetroot',
-            'cherries',
-            'corn',
-            'cotton',
-            'currants',
-            'pear',
-            'grapes',
-            'hay',
-            'peach',
-            'potatoes',
-            'raspberry',
-            'rice',
-            'sugar-beet',
-            'sunflower',
-            'vegetables',
-            'watermelons',
-            'wheat'
-        ]
-        //array
-    for (let index = 0; index < arr.length; index++) {
-        var el = document.createElement('div');
-        el.id = arr[index];
-    }
-
-
     // // create the marker
     // new mapboxgl.Marker(el)
     // .setLngLat(monument)
@@ -221,8 +206,8 @@ $(document).ready(function() {
 
     var main_address = [{
         'id': 1,
-        'title': 'Министерство сельского хозяйства, пищевой промышленности и мелиорации Кыргызской Республики',
-        'description': "Ул.Киевская 96а",
+        'city': 'Министерство сельского хозяйства, пищевой промышленности и мелиорации Кыргызской Республики',
+        'country': "Ул.Киевская 96а",
         'camera': {
             center: [74.60351506475995, 42.874049104620184],
             zoom: 18,
@@ -233,28 +218,28 @@ $(document).ready(function() {
 
     var locations = [{
             'id': 1,
-            'title': 'Бишкек',
-            'description': "столица Киргизии, город республиканского значения, центр Чуйской области, в состав которой не входит. Крупнейший по численности населения город Киргизии — 1 053 900 чел. (2020)[2]. Первые русские поселенцы поселились на месте разрушенной крепости Кокандского ханства в 1868 году[5]. Город расположен на севере Киргизии в Чуйской долине на высоте 700—900 м над уровнем моря, в 40 км севернее Киргизского хребта у предгорий Тянь-Шаня. В 25 км от границы с Казахстаном. Бишкек соединён с Туркестано-Сибирской железной дорогой. Территория города составляет 127 км²[6] или 160 км²[1].",
+            'city': 'Бишкек',
+            'country': 'Чуйская область',
             'camera': {
                 center: [74.56714000979905, 42.87584732690511],
-                zoom: 12,
+                zoom: 11,
                 pitch: 80,
-                bearing: 0
+                bearing: -20
             }
         }, {
             'id': 2,
-            'title': 'Талас',
-            'description': "Талас (до 1944 года — Дмитриевка) — город областного значения в Киргизии, административный центр Таласской области и района. Город был основан в 1877 году русскими переселенцами в центральной части Таласской долины на левом берегу реки Талас, на месте древнего поселения времён Восточно-тюркского каганата, на высоте 1200 метров над уровнем моря. Ранее назывался Дмитриевка.В 1944 году был присвоен статус города .29 октября 1958 года утратил статус города областного подчинения[3].В город Талас 2 февраля 1987 года включено село Джаны - Чек из сельсовета Сорок лет Октября Таласского района[4].",
+            'city': 'Талас',
+            'country': 'Таласская область',
             'camera': {
                 center: [72.22198178579627, 42.55788484633985],
-                zoom: 12,
-                pitch: 70,
-                bearing: -200
+                zoom: 14,
+                pitch: 140,
+                bearing: 200
             }
         }, {
             'id': 3,
-            'title': 'Джалал-Абад',
-            'description': "Джала́л-Аба́д[3] (кирг. Жалал-Абад) — третий по величине город в Киргизии, административный центр Джалал-Абадской области. Официальный сайт города http://jalabad.com.Население — более 113 900 человек[1]. Расположен в Ферганской долине. Недалеко от города протекает река Кугарт, правый приток реки Кара-Дарья.",
+            'city': 'Джалал-Абад',
+            'country': 'Джалал-Абадская область',
             'camera': {
                 center: [72.98071823329533, 40.93441319677905],
                 zoom: 13,
@@ -263,8 +248,8 @@ $(document).ready(function() {
             }
         }, {
             'id': 4,
-            'title': 'Ош',
-            'description': "Ош (кирг. Ош) — город республиканского подчинения в Киргизии, административный центр Ошской области. Ош — второй по численности населения город Киргизии после Бишкека, крупнейший город юга страны, официально именуемый «южной столицей». 18 декабря 2018 года город Ош объявлен Культурной столицей тюркского мира на 2019 год[5].",
+            'city': 'Ош',
+            'country': 'Ошская область',
             'camera': {
                 center: [72.8160644422592, 40.513331776324634],
                 zoom: 11,
@@ -274,8 +259,8 @@ $(document).ready(function() {
         },
         {
             'id': 5,
-            'title': 'Баткен',
-            'description': "Батке́н (кирг. Баткен) — город в Киргизии, административный центр Баткенской области и района. Есть два варианта происхождения топонима: Название может происходит от авест. «barź-: bŗź-: barəšnu-» — «высота, вершина», от персидского «كوه»(kuh) — «гора» и «-an» – «суффикс множественного числа» — «горные высоты или горные вершины». От др. персидского «Patīkohan» — «верховье горных высот».",
+            'city': 'Баткен',
+            'country': 'Баткенская область',
             'camera': {
                 center: [70.8213472324224, 40.055259930336526],
                 zoom: 12,
@@ -285,8 +270,8 @@ $(document).ready(function() {
         },
         {
             'id': 6,
-            'title': 'Нарын',
-            'description': "Нары́н (кирг. Нарын) — город в Киргизии, административный центр Нарынской области и Нарынского района.Население — 38 800 человек (2017). Площадь территории города — 40,5 км².",
+            'city': 'Нарын',
+            'country': 'Нарынская область',
             'camera': {
                 center: [75.98404082744595, 41.426978414966136],
                 zoom: 13,
@@ -296,18 +281,18 @@ $(document).ready(function() {
         },
         {
             'id': 7,
-            'title': 'Иссык-Куль',
-            'description': "Иссы́к-Ку́ль (кирг. Ысык-Көл — «горячее озеро») — самое большое озеро в Киргизии, бессточное, входит в 30 крупнейших по площади озёр мира и на седьмом месте в списке самых глубоких озёр. Расположено в северо-восточной части республики, между хребтами Северного Тянь-Шаня: Кюнгёй-Ала-Тоо и Терскей Ала-Тоо на высоте 1608 м над уровнем моря[1].",
+            'city': 'Иссык-Куль',
+            'country': 'Иссык-Кульская область',
             'camera': {
                 center: [77.27252433876667, 42.37472733142336],
                 zoom: 8,
-                pitch: 20,
-                bearing: 40
+                pitch: 200,
+                bearing: 360
             }
         },
         {
             'id': 8,
-            'title': '',
+            'city': '',
             'desription': "",
             'camera': {
                 center: [75, 41.1],
@@ -333,8 +318,8 @@ $(document).ready(function() {
     }
 
     function playback(index) {
-        title.textContent = locations[index].title;
-        description.textContent = locations[index].description;
+        city.textContent = locations[index].city;
+        country.textContent = locations[index].country;
         $('div.cover__guide').find('.cover__guide-info')
             .addClass('cover__guide-info_active');
         // Animate the map position based on camera properties
@@ -377,8 +362,8 @@ $(document).ready(function() {
     $("#address").click(() => {
         if (clicks) {
             map.flyTo(main_address[0].camera);
-            title.textContent = main_address[0].title;
-            description.textContent = main_address[0].description;
+            city.textContent = main_address[0].city;
+            country.textContent = main_address[0].country;
             map.once('moveend', function() {
                 $('div.cover__guide').find('.cover__guide-info')
                     .addClass('cover__guide-info_active');
@@ -396,7 +381,6 @@ $(document).ready(function() {
         var cult;
         var arrObj = ['#chui', '#naryn', '#issyk', '#batken', '#talas', '#osh', '#jalal'];
         var arrCountrys = [chui, naryn, issyk, batken, talas, osh, jalal];
-
         for (let index = 0; index <= arrObj.length; index++) {
             if ($(arrObj[index]).prop('checked') == true) {
                 if (arrObj[index].replace('#', '') == Object.keys(arrCountrys[index])[0]) {
@@ -404,18 +388,25 @@ $(document).ready(function() {
                         if (arrObj[index].replace('#', '') == key) {
                             return;
                         } else {
+                            for (text in translate){
+                                if (key == text){
+                                    var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+                                        translate[text]
+                                    );
+                                }
+                            }
                             cult = document.createElement('div');
                             $(cult).addClass(arrObj[index].replace('#', ''));
                             cult.id = key;
                             new mapboxgl.Marker(cult)
                                 .setLngLat(value)
+                                .setPopup(popup)
                                 .addTo(map);
                         }
                     });
                 }
             } else if ($(arrObj[index]).prop('checked') == false) {
                 $('.' + arrObj[index].replace('#', '')).remove();
-                console.log(index)
             }
         }
     });
