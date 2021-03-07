@@ -1,3 +1,27 @@
+var translate = {
+            'apple':'Яблоки',
+            'apricots':'Абрикросы',
+            'barley':'Ячмень',
+            'beans':'Бобовые',
+            'beetroot':'Свекла',
+            'cherries':'Вишня',
+            'corn':'Кукуруза',
+            'cotton':'Хлопок',
+            'currants':'Смородина',
+            'pear':'Груши',
+            'grapes':'Виноград',
+            'hay':'Сено',
+            'peach':'Персики',
+            'potatoes':'Картошка',
+            'raspberry':'Малина',
+            'rice':'Рис',
+            'sugar-beet':'Сахарная свекла',
+            'sunflower':'Подсолнечники',
+            'vegetables':'Овощи',
+            'watermelons':'Арбузы',
+            'wheat':'Пшеница'
+};
+
 $(document).ready(function() {
     mapboxgl.accessToken = 'pk.eyJ1IjoidGRzYWludCIsImEiOiJja2k4aTM2ZWwwNjB5MnRsY291OWl3OWlmIn0.aVPzSWzdwwYet2-GHZNWkQ';
     var clicks = true;
@@ -7,8 +31,6 @@ $(document).ready(function() {
     var country = document.getElementById('location-country');
 
     var info = false;
-
-
     var map = new mapboxgl.Map({
         container: 'map', // container id
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
@@ -18,9 +40,6 @@ $(document).ready(function() {
         zoom: 6,
         attributionControl: false,
     });
-
-
-
     // // create the popup
     // var popup = new mapboxgl.Popup({
     //     offset: 25
@@ -120,40 +139,6 @@ $(document).ready(function() {
         'peach': [79.11, 42.29],
         'potatos': [78.42, 42.56]
     };
-
-
-
-
-
-    let arr = new Array();
-    arr = ['apple',
-            'apricots',
-            'barley',
-            'beans',
-            'beetroot',
-            'cherries',
-            'corn',
-            'cotton',
-            'currants',
-            'pear',
-            'grapes',
-            'hay',
-            'peach',
-            'potatoes',
-            'raspberry',
-            'rice',
-            'sugar-beet',
-            'sunflower',
-            'vegetables',
-            'watermelons',
-            'wheat'
-        ]
-        //array
-    for (let index = 0; index < arr.length; index++) {
-        var el = document.createElement('div');
-        el.id = arr[index];
-    }
-
 
     // // create the marker
     // new mapboxgl.Marker(el)
@@ -396,7 +381,6 @@ $(document).ready(function() {
         var cult;
         var arrObj = ['#chui', '#naryn', '#issyk', '#batken', '#talas', '#osh', '#jalal'];
         var arrCountrys = [chui, naryn, issyk, batken, talas, osh, jalal];
-
         for (let index = 0; index <= arrObj.length; index++) {
             if ($(arrObj[index]).prop('checked') == true) {
                 if (arrObj[index].replace('#', '') == Object.keys(arrCountrys[index])[0]) {
@@ -404,18 +388,25 @@ $(document).ready(function() {
                         if (arrObj[index].replace('#', '') == key) {
                             return;
                         } else {
+                            for (text in translate){
+                                if (key == text){
+                                    var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+                                        translate[text]
+                                    );
+                                }
+                            }
                             cult = document.createElement('div');
                             $(cult).addClass(arrObj[index].replace('#', ''));
                             cult.id = key;
                             new mapboxgl.Marker(cult)
                                 .setLngLat(value)
+                                .setPopup(popup)
                                 .addTo(map);
                         }
                     });
                 }
             } else if ($(arrObj[index]).prop('checked') == false) {
                 $('.' + arrObj[index].replace('#', '')).remove();
-                console.log(index)
             }
         }
     });
