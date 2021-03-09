@@ -13,6 +13,17 @@
   margin: 0 auto;
 }
 
+.modal {
+  min-width: 300px;
+  min-height: 300px;
+}
+
+.modal__elements {
+  padding: 20px;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .agriculture {
   position: relative;
 }

@@ -40,6 +40,8 @@ $(document).ready(function() {
         zoom: 6,
         attributionControl: false,
     });
+
+ 
     // // create the popup
     // var popup = new mapboxgl.Popup({
     //     offset: 25
@@ -422,6 +424,28 @@ $(document).ready(function() {
     map.on('load', function() {
         // Insert the layer beneath any symbol layer.
         var layers = map.getStyle().layers;
+
+        map.addSource('regions', {
+            'type': 'geojson',
+            'data': '../data/map.geojson'
+        });
+
+        map.addLayer({
+            'id': 'regions-layers',
+            'type': 'fill',
+            'source': 'regions',
+            'paint': {
+            'fill-color': 'rgba(39, 174, 96,.6)',
+            'fill-outline-color': 'rgba(44, 62, 80,1)'
+            }
+        });
+
+        map.on('click', 'regions-layers', function (e) {
+            new mapboxgl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(e.features[0].properties.name)
+            .addTo(map);
+        });
 
         map.addLayer({
             'id': '3d-buildings',
