@@ -424,28 +424,47 @@ $(document).ready(function() {
     map.on('load', function() {
         // Insert the layer beneath any symbol layer.
         var layers = map.getStyle().layers;
+        var region_source = [
+            "../data/regions/chui.json",
+            "../data/regions/talas.json"
+        ]
+        var region_name = [
+            "chui",
+            "talas"
+        ] 
 
-        map.addSource('regions', {
-            'type': 'geojson',
-            'data': '../data/map.geojson'
-        });
+        var region_colors = [
+            "rgba(52, 152, 219,.8)",
+            "rgba(46, 204, 113,.8)"
+        ]
 
-        map.addLayer({
-            'id': 'regions-layers',
-            'type': 'fill',
-            'source': 'regions',
-            'paint': {
-            'fill-color': 'rgba(39, 174, 96,.6)',
-            'fill-outline-color': 'rgba(44, 62, 80,1)'
-            }
-        });
+        for (var i = 0; i <= region_source.length; i++){
+            map.addSource(region_name[i], {
+                'type': 'geojson',
+                'data': region_source[i]
+            });
+    
+            map.addLayer({
+                'id': i.toString(),
+                'type': 'fill',
+                'source': region_name[i],
+                'paint': {
+                'fill-color': region_colors[i],
+                'fill-outline-color': 'rgba(44, 62, 80,1)'
+                }
+            });
 
-        map.on('click', 'regions-layers', function (e) {
-            new mapboxgl.Popup()
-            .setLngLat(e.lngLat)
-            .setHTML(e.features[0].properties.name)
-            .addTo(map);
-        });
+            mapClick(i);
+        }
+
+function mapClick(id){
+    map.on('click', id.toString(), function (e) {
+        new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(e.features[0].properties.name)
+        .addTo(map);
+    });
+}
 
         map.addLayer({
             'id': '3d-buildings',
