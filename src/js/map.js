@@ -426,16 +426,25 @@ $(document).ready(function() {
         var layers = map.getStyle().layers;
         var region_source = [
             "../data/regions/chui.json",
-            "../data/regions/talas.json"
+            "../data/regions/talas.json",
+            "../data/regions/naryn.json",
+            "../data/regions/jalal-abad.json",
+            "../data/regions/issik-kul.json"
         ]
         var region_name = [
             "chui",
-            "talas"
+            "talas",
+            "naryn",
+            "jalal-abad",
+            "issik-kul"
         ] 
 
         var region_colors = [
-            "rgba(52, 152, 219,.8)",
-            "rgba(46, 204, 113,.8)"
+            "rgba(192, 57, 43,.6)",
+            "rgba(211, 84, 0,.6)",
+            "rgba(39, 174, 96,.6)",
+            "rgba(41, 128, 185,.6)",
+            "rgba(243, 156, 18,.6)",
         ]
 
         for (var i = 0; i <= region_source.length; i++){
