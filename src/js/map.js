@@ -381,7 +381,7 @@ $(document).ready(function() {
     });
     $("#check").click(() => {
         var cult;
-        var arrObj = ['#chui', '#naryn', '#issyk', '#batken', '#talas', '#osh', '#jalal'];
+        var arrObj = ['#chui', '#naryn', '#issyk', '#batken', '#talas', '#osh', '#jalal', '#rigions'];
         var arrCountrys = [chui, naryn, issyk, batken, talas, osh, jalal];
         for (let index = 0; index <= arrObj.length; index++) {
             if ($(arrObj[index]).prop('checked') == true) {
@@ -410,6 +410,40 @@ $(document).ready(function() {
             } else if ($(arrObj[index]).prop('checked') == false) {
                 $('.' + arrObj[index].replace('#', '')).remove();
             }
+        }
+        if ($('#regions').prop('checked') == true){
+             // Insert the layer beneath any symbol layer.
+        var layers = map.getStyle().layers;
+        var region_source = "../data/geodata.json"
+        var region_name = "regions"
+
+        var region_colors = "rgba(192, 57, 43,.6)"
+
+            map.addSource(region_name.toString(), {
+                'type': 'geojson',
+                'data': region_source
+            });
+    
+            map.addLayer({
+                'id': 'regions',
+                'type': 'fill',
+                'source': region_name.toString(),
+                'paint': {
+                'fill-color': region_colors.toString(),
+                'fill-outline-color': 'rgba(44, 62, 80,1)'
+                }
+            });
+
+            mapClick(0);
+        }
+
+        function mapClick(id){
+            map.on('click', id.toString(), function (e) {
+                new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(e.features[0].properties[0].toString())
+                .addTo(map);
+            });
         }
     });
     // Object.entries(naryn).forEach(([key, value]) => {
