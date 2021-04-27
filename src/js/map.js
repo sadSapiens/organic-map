@@ -41,14 +41,6 @@ $(document).ready(function() {
         attributionControl: false,
     });
 
- 
-    // // create the popup
-    // var popup = new mapboxgl.Popup({
-    //     offset: 25
-    // }).setText(
-    //     'Construction on the Washington Monument began in 1848.'
-    // );
-
     var talas = {
         'talas': 'talas',
         'vegetables': [71.56, 42.66],
@@ -142,22 +134,6 @@ $(document).ready(function() {
         'potatos': [78.42, 42.56]
     };
 
-    // // create the marker
-    // new mapboxgl.Marker(el)
-    // .setLngLat(monument)
-    // .setPopup(popup) // sets a popup on this marker
-    // .addTo(map);
-
-    // map.on('mousemove', function(e) {
-    //     document.getElementById('info').innerHTML =
-    //         // e.point is the x, y coordinates of the mousemove event relative
-    //         // to the top-left corner of the map
-    //         JSON.stringify(e.point) +
-    //         '<br />' +
-    //         // e.lngLat is the longitude, latitude geographical position of the event
-    //         JSON.stringify(e.lngLat.wrap());
-    // });
-
     map.addControl(new MapboxLanguage({
         defaultLanguage: 'ru'
     }));
@@ -171,40 +147,6 @@ $(document).ready(function() {
     });
     map.addControl(scale);
     scale.setUnit('metric');
-    // var talas = new mapboxgl.Marker()
-    //     .setLngLat([72.22198178579627, 42.55788484633985])
-    //     .setPopup(new mapboxgl.Popup().setHTML("<h1>Талас</h1>"))
-    //     .addTo(map);
-
-    // var naryn = new mapboxgl.Marker()
-    //     .setLngLat([75.98404082744595, 41.426978414966136])
-    //     .setPopup(new mapboxgl.Popup().setHTML("<h1>Нарын</h1>"))
-    //     .addTo(map);
-
-    // var batken = new mapboxgl.Marker()
-    //     .setLngLat([70.8213472324224, 40.055259930336526])
-    //     .setPopup(new mapboxgl.Popup().setHTML("<h1>Баткен</h1>"))
-    //     .addTo(map);
-
-    // var bishkek = new mapboxgl.Marker()
-    //     .setLngLat([74.56714000979905, 42.87584732690511])
-    //     .setPopup(new mapboxgl.Popup().setHTML("<h1>Бишкек</h1>"))
-    //     .addTo(map);
-
-    // var osh = new mapboxgl.Marker()
-    //     .setLngLat([72.8160644422592, 40.513331776324634])
-    //     .setPopup(new mapboxgl.Popup().setHTML("<h1>Ош</h1>"))
-    //     .addTo(map);
-
-    // var djal = new mapboxgl.Marker()
-    //     .setLngLat([72.98071823329533, 40.93441319677905])
-    //     .setPopup(new mapboxgl.Popup().setHTML("<h1>Джалал-Абад</h1>"))
-    //     .addTo(map);
-
-    // var ik = new mapboxgl.Marker()
-    //     .setLngLat([77.27252433876667, 42.37472733142336])
-    //     .setPopup(new mapboxgl.Popup().setHTML("<h1>Иссык-Куль</h1>"))
-    //     .addTo(map);
 
     var main_address = [{
         'id': 1,
@@ -377,8 +319,14 @@ $(document).ready(function() {
                 .removeClass('cover__guide-info_active');
             clicks = true;
         }
-
     });
+
+/*
+* 
+* Check event click for showing markers
+* 
+*/
+
     $("#check").click(() => {
         var cult;
         var arrObj = ['#chui', '#naryn', '#issyk', '#batken', '#talas', '#osh', '#jalal', '#rigions'];
@@ -411,12 +359,18 @@ $(document).ready(function() {
                 $('.' + arrObj[index].replace('#', '')).remove();
             }
         }
-        if ($('#regions').prop('checked') == true){
+
+/*
+ * 
+ * For show regions 
+ * 
+ */
+    if ($('#regions').prop('checked') == true){
              // Insert the layer beneath any symbol layer.
+        removeLayers();
         var layers = map.getStyle().layers;
         var region_source = "../data/geodata.json"
         var region_name = "regions"
-
         var region_colors = "rgba(192, 57, 43,.6)"
 
             map.addSource(region_name.toString(), {
@@ -434,27 +388,33 @@ $(document).ready(function() {
                 }
             });
 
-            mapClick(0);
+            mapClick('regions');
         }
 
         function mapClick(id){
+
             map.on('click', id.toString(), function (e) {
                 new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML(e.features[0].properties[0].toString())
+                .setHTML(e.features[0].properties.title_ru)
                 .addTo(map);
+                map.flyTo({center: e.features[0].geometry.coordinates[0][0], zoom:8});
             });
         }
     });
-    // Object.entries(naryn).forEach(([key, value]) => {
-    //     naryn = document.createElement('div');
-    //     naryn.id = key;
-    //     new mapboxgl.Marker(naryn)
-    //         .setLngLat(value)
-    //         // .setPopup(popup)
-    //         .addTo(map);
-    // });
 
+//Function for remove layers
+
+function removeLayers(){
+    for (let index = 0; index <= 4; index++) {
+        if (map.getLayer(index.toString())) map.removeLayer(index.toString());
+    }
+}
+/*
+*
+* Function for map load
+*
+*/
     map.on('load', function() {
         // Insert the layer beneath any symbol layer.
         var layers = map.getStyle().layers;
@@ -474,14 +434,14 @@ $(document).ready(function() {
         ] 
 
         var region_colors = [
-            "rgba(192, 57, 43,.6)",
-            "rgba(211, 84, 0,.6)",
-            "rgba(39, 174, 96,.6)",
-            "rgba(41, 128, 185,.6)",
-            "rgba(243, 156, 18,.6)",
+            "rgba(192, 57, 43, .6)",
+            "rgba(211, 84, 0, .6)",
+            "rgba(39, 174, 96, .6)",
+            "rgba(41, 128, 185, .6)",
+            "rgba(243, 156, 18, .6)",
         ]
 
-        for (var i = 0; i <= region_source.length; i++){
+        for (var i = 0; i <= region_source.length-1; i++){
             map.addSource(region_name[i], {
                 'type': 'geojson',
                 'data': region_source[i]
@@ -493,7 +453,7 @@ $(document).ready(function() {
                 'source': region_name[i],
                 'paint': {
                 'fill-color': region_colors[i],
-                'fill-outline-color': 'rgba(44, 62, 80,1)'
+                'fill-outline-color': 'rgba(44, 62, 80, 1)'
                 }
             });
 
@@ -506,9 +466,15 @@ function mapClick(id){
         .setLngLat(e.lngLat)
         .setHTML(e.features[0].properties.name)
         .addTo(map);
+        map.flyTo({center: e.features[0].geometry.coordinates[0][0], zoom:8});
     });
 }
 
+/*
+*
+* Map 3D layer
+*
+*/
         map.addLayer({
             'id': '3d-buildings',
             'source': 'composite',
