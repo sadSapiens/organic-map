@@ -1,3 +1,92 @@
+var regions = {
+    'batken': "../data/regions/batken/batken.json",
+    'kadamjai':'../data/regions/batken/kadamjai.json',
+    'leilek':'../data/regions/batken/leilek.json',
+    'alamudun':'../data/regions/chui/alamudun.json',
+    'chui':'../data/regions/chui/chui.json',
+    'issik-ata':'../data/regions/chui/issik-ata.json',
+    'jail':'../data/regions/chui/jail.json',
+    'kemin':'../data/regions/chui/kemin.json',
+    'moskva':'../data/regions/chui/moskva.json',
+    'panfilov':'../data/regions/chui/panfilov.json',
+    'sokuluk':'../data/regions/chui/sokuluk.json',
+    'ak-sui':'../data/regions/issik-kul/ak-sui.json',
+    'issik-kul':'../data/regions/issik-kul/issik-kul.json',
+    'jedi-oguz':'../data/regions/issik-kul/jedi-oguz.json',
+    'ton':'../data/regions/issik-kul/ton.json',
+    'tup':'../data/regions/issik-kul/tup.json',
+    'aksiy':'../data/regions/jalal-abad/aksiy.json',
+    'ala-bukin':'../data/regions/jalal-abad/ala-bukin.json',
+    'bazar-korgon':'../data/regions/jalal-abad/bazar-korgon.json',
+    'chatcal':'../data/regions/jalal-abad/chatcal.json',
+    'nooken':'../data/regions/jalal-abad/nooken.json',
+    'suzak':'../data/regions/jalal-abad/suzak.json',
+    'toguz-toro':'../data/regions/jalal-abad/toguz-toro.json',
+    'toktogul':'../data/regions/jalal-abad/toktogul.json',
+    'ak-tala':'../data/regions/naryn/ak-tala.json',
+    'at-bashi':'../data/regions/naryn/at-bashi.json',
+    'jumgal':'../data/regions/naryn/jumgal.json',
+    'kochkor':'../data/regions/naryn/kochkor.json',
+    'naryn':'../data/regions/naryn/naryn.json',
+    'alai':'../data/regions/osh/alai.json',
+    'aravan':'../data/regions/osh/aravan.json',
+    'chon-alai':'../data/regions/osh/chon-alai.json',
+    'kara-kulja':'../data/regions/osh/kara-kulja.json',
+    'kara-sui':'../data/regions/osh/kara-sui.json',
+    'nookat':'../data/regions/osh/nookat.json',
+    'uzgen':'../data/regions/osh/uzgen.json',
+    'bakai-ata':'../data/regions/talas/bakai-ata.json',
+    'kara-buurin':'../data/regions/talas/kara-buurin.json',
+    'manas':'../data/regions/talas/manas.json',
+    'talas':'../data/regions/talas/talas.json',    
+};
+
+var colors = [
+    'rgba(235, 134, 75, 0.6)',
+    'rgba(209, 120, 68, 0.6)',
+    'rgba(161, 94, 55, 0.6)',
+    'rgba(81, 168, 255, 0.6)',
+    'rgba(76, 154, 232, 0.6)',
+    'rgba(76, 154, 232, 0.6)',
+    'rgba(59, 121, 183, 0.6)',
+    'rgba(53, 104, 155, 0.6)',
+    'rgba(45, 88, 132, 0.6)',
+    'rgba(40, 75, 110, 0.6)',
+    'rgba(9, 57, 104, 0.6)',
+    'rgba(72, 226, 48, 0.6)',
+    'rgba(63, 191, 43, 0.6)',
+    'rgba(51, 156, 35, 0.6)',
+    'rgba(38, 118, 25, 0.6)',
+    'rgba(26, 144, 8, 0.6)',
+    'rgba(84, 175, 70, 0.6)',
+    'rgba(76, 131, 248, 0.6)',
+    'rgba(76, 131, 248, 0.6)',
+    'rgba(76, 131, 248, 0.6)',
+    'rgba(55, 94, 176, 0.6)',
+    'rgba(49, 82, 155, 0.6)',
+    'rgba(49, 82, 155, 0.6)',
+    'rgba(49, 82, 155, 0.6)',
+    'rgba(49, 82, 155, 0.6)',
+    'rgba(49, 82, 155, 0.6)',
+    'rgba(56, 102, 234, 0.6)',
+    'rgba(50, 91, 205, 0.6)',
+    'rgba(46, 81, 180, 0.6)',
+    'rgba(41, 70, 153, 0.6)',
+    'rgba(34, 58, 129, 0.6)',
+    'rgba(28, 48, 106, 0.6)',
+    'rgba(28, 48, 106, 0.6)',
+    'rgba(28, 48, 106, 0.6)',
+    'rgba(28, 48, 106, 0.6)',
+    'rgba(43, 111, 199, 0.6)',
+    'rgba(40, 102, 184, 0.6)',
+    'rgba(37, 90, 160, 0.6)',
+    'rgba(31, 79, 141, 0.6)',
+    'rgba(31, 79, 141, 0.6)',
+    'rgba(21, 52, 93, 0.6)',
+    'rgba(34, 112, 147,.6)',
+    'rgba(44, 44, 84,.6)',
+    'rgba(204, 174, 98,.6)',
+]
 var translate = {
             'apple':'Яблоки',
             'apricots':'Абрикросы',
@@ -359,51 +448,7 @@ $(document).ready(function() {
                 $('.' + arrObj[index].replace('#', '')).remove();
             }
         }
-
-/*
- * 
- * For show regions 
- * 
- */
-    if ($('#regions').prop('checked') == true){
-             // Insert the layer beneath any symbol layer.
-        removeLayers();
-        var layers = map.getStyle().layers;
-        var region_source = "../data/geodata.json"
-        var region_name = "regions"
-        var region_colors = "rgba(192, 57, 43,.6)"
-
-            map.addSource(region_name.toString(), {
-                'type': 'geojson',
-                'data': region_source
-            });
-    
-            map.addLayer({
-                'id': 'regions',
-                'type': 'fill',
-                'source': region_name.toString(),
-                'paint': {
-                'fill-color': region_colors.toString(),
-                'fill-outline-color': 'rgba(44, 62, 80,1)'
-                }
-            });
-
-            mapClick('regions');
-        }
-
-        function mapClick(id){
-
-            map.on('click', id.toString(), function (e) {
-                new mapboxgl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(e.features[0].properties.title_ru)
-                .addTo(map);
-                map.flyTo({center: e.features[0].geometry.coordinates[0][0], zoom:8});
-            });
-        }
     });
-
-//Function for remove layers
 
 function removeLayers(){
     for (let index = 0; index <= 4; index++) {
@@ -418,56 +463,34 @@ function removeLayers(){
     map.on('load', function() {
         // Insert the layer beneath any symbol layer.
         var layers = map.getStyle().layers;
-        var region_source = [
-            "../data/regions/chui.json",
-            "../data/regions/talas.json",
-            "../data/regions/naryn.json",
-            "../data/regions/jalal-abad.json",
-            "../data/regions/issik-kul.json"
-        ]
-        var region_name = [
-            "chui",
-            "talas",
-            "naryn",
-            "jalal-abad",
-            "issik-kul"
-        ] 
-
-        var region_colors = [
-            "rgba(192, 57, 43, .6)",
-            "rgba(211, 84, 0, .6)",
-            "rgba(39, 174, 96, .6)",
-            "rgba(41, 128, 185, .6)",
-            "rgba(243, 156, 18, .6)",
-        ]
-
-        for (var i = 0; i <= region_source.length-1; i++){
-            map.addSource(region_name[i], {
+        
+        Object.entries(regions).forEach(([key, value], index) => {
+            map.addSource(key.toString(), {
                 'type': 'geojson',
-                'data': region_source[i]
+                'data': value
             });
     
             map.addLayer({
-                'id': i.toString(),
+                'id': key.toString(),
                 'type': 'fill',
-                'source': region_name[i],
+                'source': key.toString(),
                 'paint': {
-                'fill-color': region_colors[i],
-                'fill-outline-color': 'rgba(44, 62, 80, 1)'
+                'fill-color': colors[index].toString(),
+                'fill-outline-color': 'rgba(44, 62, 80,1)'
                 }
             });
+            mapClick(key.toString());
+        });
 
-            mapClick(i);
-        }
+        function mapClick(id){
 
-function mapClick(id){
-    map.on('click', id.toString(), function (e) {
-        new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML(e.features[0].properties.name)
-        .addTo(map);
-        map.flyTo({center: e.features[0].geometry.coordinates[0][0], zoom:8});
-    });
+            map.on('click', id.toString(), function (e) {
+                new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(e.features[0].properties.title_ru)
+                .addTo(map);
+                map.flyTo({center: e.features[0].geometry.coordinates[0][0], zoom:8});
+        });
 }
 
 /*
