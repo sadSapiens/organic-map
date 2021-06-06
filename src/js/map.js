@@ -460,6 +460,12 @@ function removeLayers(){
 * Function for map load
 *
 */
+
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
+
     map.on('load', function() {
         // Insert the layer beneath any symbol layer.
         var layers = map.getStyle().layers;
@@ -477,19 +483,28 @@ function removeLayers(){
                 'paint': {
                 'fill-color': colors[index].toString(),
                 'fill-outline-color': 'rgba(44, 62, 80,1)'
-                }
+                },
             });
             mapClick(key.toString());
         });
 
         function mapClick(id){
-
-            map.on('click', id.toString(), function (e) {
-                new mapboxgl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(e.features[0].properties.title_ru)
-                .addTo(map);
-                map.flyTo({center: e.features[0].geometry.coordinates[0][0], zoom:8});
+            map.on('mouseenter', id.toString(), function (e) {
+            map.getCanvas().style.cursor = 'pointer';
+            var coordinates = e.features[0].geometry.coordinates.slice();
+            var title = e.features[0].properties.title_ru;
+            alert(coordinates)
+            alert(title)
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+            popup.setLngLat(coordinates).setHTML(title).addTo(map);
+                // map.flyTo({center: e.features[0].geometry.coordinates[0][0], zoom:8});
+        });
+        
+        map.on('mouseleave', id.toString(), function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
         });
 }
 
