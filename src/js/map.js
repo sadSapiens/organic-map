@@ -229,6 +229,8 @@ $(document).ready(function() {
 
     var nav = new mapboxgl.NavigationControl();
     map.addControl(nav, 'bottom-right');
+    var geo = new mapboxgl.GeolocateControl();
+    map.addControl(geo, 'bottom-right');
 
     var scale = new mapboxgl.ScaleControl({
         maxWidth: 100,
@@ -475,7 +477,7 @@ function removeLayers(){
                 'type': 'fill',
                 'source': key.toString(),
                 'paint': {
-                'fill-color': colors[index].toString(),
+                'fill-color': 'rgba(231, 76, 60,.5)',
                 'fill-outline-color': 'rgba(44, 62, 80,1)'
                 }
             });

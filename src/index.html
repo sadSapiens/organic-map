@@ -24,7 +24,143 @@
 
     <div class="info" id="info"></div>
 
-    <section class="cover">
+    <div class="menu__btn" id="btn">
+        <img src="icons/menu.svg" class="menu__btn-icon" alt="menu">
+    </div>
+
+    <section class="slide__info" id="slide">
+        <div class="slide__info_wrapper">
+            <div class="slide__info_items">
+            <ul class="slide__list">
+                <li class="slide__list-item">
+                    <img src="icons/grain.svg" alt="">
+                </li>
+                <li class="slide__list-item">
+                    <img src="icons/statistics.svg" alt="">
+                </li>
+                <li class="slide__list-item">
+                    <img src="icons/database.svg" alt="">
+                </li>
+                <li class="slide__list-item">
+                    <img src="icons/world.svg" alt="">
+                </li>
+            </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="cover">
+        <div class="cover__menu">
+            <div class="cover__filter">
+                <ul class="cover__filter-menu">
+                    <li class="cover__filter-menu_item">
+                        <label for="chui" class="cover__filter-menu_item-name">Чуйская область</label>
+                        <input type="checkbox" name="chui" id="chui" class="cover__filter-menu_item-check">
+                    </li>
+                    <li class="cover__filter-menu_item">
+                        <label for="naryn" class="cover__filter-menu_item-name">Нарынская область</label>
+                        <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                    </li>
+                    <li class="cover__filter-menu_item">
+                        <label for="talas" class="cover__filter-menu_item-name">Таласская область</label>
+                        <input type="checkbox" name="talas" id="talas" class="cover__filter-menu_item-check">
+                    </li>
+                    <li class="cover__filter-menu_item">
+                        <label for="batken" class="cover__filter-menu_item-name">Баткенская область</label>
+                        <input type="checkbox" name="batken" id="batken" class="cover__filter-menu_item-check">
+                    </li>
+                    <li class="cover__filter-menu_item">
+                        <label for="jalal" class="cover__filter-menu_item-name">Джалал-Абадская область</label>
+                        <input type="checkbox" name="jalal" id="jalal" class="cover__filter-menu_item-check">
+                    </li>
+                    <li class="cover__filter-menu_item">
+                        <label for="osh" class="cover__filter-menu_item-name">Ошская область</label>
+                        <input type="checkbox" name="osh" id="osh" class="cover__filter-menu_item-check">
+                    </li>
+                    <li class="cover__filter-menu_item">
+                        <label for="issyk" class="cover__filter-menu_item-name">Иссык-Кульская область</label>
+                        <input type="checkbox" name="issyk" id="issyk" class="cover__filter-menu_item-check">
+                    </li>
+
+                    <button class="button cover__filter-menu-btn" id="check">Показать</button>
+                </ul>
+
+                <ul class="cover__filter-submenu">
+                    <table class="cover__filter-wrapper">
+                        <tr>
+                            <td>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Яблоко</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Абрикос</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Пшеница</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Бобовые</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Свекла</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Черешня</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Кукуруза</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                            </td>
+                            <td>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Хлопок</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Смородина</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Виноград</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Сено</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Персик</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Картошка</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Малина</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                            </td>
+                            <td>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Рис</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Сахарная свекла</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Подсолнух</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                             <section class="cover">
         <div class="cover__menu">
             <div class="cover__filter">
                 <ul class="cover__filter-menu">
@@ -182,17 +318,74 @@
                     <img src="icons/guide.svg" alt="guide" class="cover__guide-button_image">
                     <span class="cover__guide-button_text">Запустить гид</span>
                 </button>
-            </div>
+            </div> -->
 
             <!-- <div class="cover__satellite">
                 <button class="button cover__guide-button" id="satellite">
                     <img src="icons/satellite.svg" alt="satellite" class="cover__guide-button_image">
                     <span class="cover__guide-button_text">Вид со спутника  </span>
                 </button>
-            </div> -->
+            </div>
+
+        </div>    </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Овощи</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Арбуз</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                                <li class="cover__filter-submenu_item">
+                                    <label for="naryn" class="cover__filter-menu_item-name">Ячмень</label>
+                                    <input type="checkbox" name="naryn" id="naryn" class="cover__filter-menu_item-check">
+                                </li>
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="button slide-btn">
+                        <img src="icons/slide.svg" alt="slide" class="slide-btn-image">
+                    </button>
+                </ul>
+                <button class="button cover__filter-button" id="filter">
+                    <img src="icons/filter.svg" alt="address" class="cover__filter-button_image">
+                    <span class="cover__filter-button_text">Фильтр</span>
+                </button>
+            </div>
+            <div class="cover__address">
+                <button class="button cover__address-button" id="address">
+                    <img src="icons/home.svg" alt="address" class="cover__address-button_image">
+                    <span class="cover__address-button_text">Адрес министерства</span>
+                </button>
+            </div>
+
+            <div class="cover__guide">
+                <div class="cover__guide-info">
+                    <div class="cover__guide-info-wrapper">
+                    <div class="cover__guide-info-title" id="location-city">
+                        Бишкек
+                    </div>
+                    <div class="cover__guide-info-description" id="location-country">
+                        Чуйская область
+                    </div>
+                </div>
+                </div>
+                <button class="button cover__guide-button" id="guide">
+                    <img src="icons/guide.svg" alt="guide" class="cover__guide-button_image">
+                    <span class="cover__guide-button_text">Запустить гид</span>
+                </button>
+            </div>
+
+            <div class="cover__satellite">
+                <button class="button cover__guide-button" id="satellite">
+                    <img src="icons/satellite.svg" alt="satellite" class="cover__guide-button_image">
+                    <span class="cover__guide-button_text">Вид со спутника  </span>
+                </button>
+            </div>
 
         </div>
-    </section>
+    </section> -->
+    <script src="js/logic.js"></script>
     <script src="js/map.js"></script>
     <script src="js/querys.js"></script>
 </body>
