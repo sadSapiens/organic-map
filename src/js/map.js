@@ -487,27 +487,54 @@ var popup = new mapboxgl.Popup({
                 'fill-outline-color': 'rgba(44, 62, 80,1)'
                 },
             });
-            mapClick(key.toString());
+            mapClick('alai');
         });
 
         function mapClick(id){
-            map.on('mouseenter', id.toString(), function (e) {
-            map.getCanvas().style.cursor = 'pointer';
-            var coordinates = e.features[0].geometry.coordinates.slice();
-            var title = e.features[0].properties.title_ru;
-            alert(coordinates)
-            alert(title)
-            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            }
-            popup.setLngLat(coordinates).setHTML(title).addTo(map);
-                // map.flyTo({center: e.features[0].geometry.coordinates[0][0], zoom:8});
+            map.on('click', id.toString(), function (e) {
+            map.flyTo({center: [74.37, 39.97], zoom:8});
+            $('div.modal-active').attr('class','modal');
+            map.removeLayer('alai')
+            map.removeSource('alai')
+            map.addSource('alai', {
+                'type': 'geojson',
+                'data': '../data/regions/osh/alai.json'
+            });
+            map.addLayer({
+                'id': 'alai',
+                'type': 'fill',
+                'source': 'alai',
+                'paint': {
+                'fill-color': 'rgba(46, 204, 113,.6)',
+                'fill-outline-color': 'rgba(236, 240, 241,1.0)'
+                },
+            });
+            $("#close").click(() => {
+                $('div.modal').attr('class','modal modal-active');
+                map.flyTo({center: [75, 41.1], zoom:6});
+                map.removeLayer('alai')
+                map.removeSource('alai')
+                map.addSource('alai', {
+                    'type': 'geojson',
+                    'data': '../data/regions/osh/alai.json'
+                });
+                map.addLayer({
+                    'id': 'alai',
+                    'type': 'fill',
+                    'source': 'alai',
+                    'paint': {
+                    'fill-color': 'rgba(231, 76, 60,.5)',
+                    'fill-outline-color': 'rgba(44, 62, 80,1)'
+                    },
+                });
+            });
         });
         
-        map.on('mouseleave', id.toString(), function () {
+        map.on('click', id.toString(), function () {
             map.getCanvas().style.cursor = '';
             popup.remove();
         });
+        
 }
 
 /*
@@ -515,6 +542,36 @@ var popup = new mapboxgl.Popup({
 * Map 3D layer
 *
 */
+
+function showLayers_test(click){
+    var cult;
+    var arrObj = ['#osh'];
+    var arrCountrys = [osh];
+    for (let index = 0; index <= arrObj.length; index++) {
+            if (arrObj[index].replace('#', '') == Object.keys(arrCountrys[index])[0]) {
+                Object.entries(arrCountrys[index]).forEach(([key, value]) => {
+                    if (arrObj[index].replace('#', '') == key) {
+                        return;
+                    } else {
+                        for (text in translate){
+                            if (key == text){
+                                var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+                                    translate[text]
+                                );
+                            }
+                        }
+                        cult = document.createElement('div');
+                        $(cult).addClass(arrObj[index].replace('#', ''));
+                        cult.id = key;
+                        new mapboxgl.Marker(cult)
+                            .setLngLat(value)
+                            .setPopup(popup)
+                            .addTo(map);
+                    }
+                });
+            }
+    }
+}
         map.addLayer({
             'id': '3d-buildings',
             'source': 'composite',

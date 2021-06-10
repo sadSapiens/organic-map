@@ -1,5 +1,6 @@
-document.getElementById("btn").addEventListener("click", btnClick);
+// document.getElementById("btn").addEventListener("click", btnClick);
 
-function btnClick(){
-    document.getElementById("slide").classList.add('activate');
-}
+// function btnClick(){
+//     document.getElementById("slide").classList.add('activate');
+// }
+
