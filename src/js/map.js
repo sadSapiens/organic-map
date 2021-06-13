@@ -477,31 +477,52 @@ var popup = new mapboxgl.Popup({
                 'type': 'geojson',
                 'data': value
             });
-    
+            //fill layers
             map.addLayer({
                 'id': key.toString(),
                 'type': 'fill',
                 'source': key.toString(),
                 'paint': {
-                'fill-color': 'rgba(231, 76, 60,.5)',
-                'fill-outline-color': 'rgba(44, 62, 80,1)'
-                },
+                'fill-color': 'rgba(30, 39, 46,.6)',
+                'fill-outline-color': '#fff'
+                }    
             });
+            //text layers
+            map.addLayer({
+                'id': "symbol_" + key.toString(),
+                'type': 'symbol',
+                'source': key.toString(),
+                'layout': {
+                // get the title name from the source's "title" property
+                'text-field': ['get', 'title_ru'],
+                'text-font': [
+                'Open Sans Semibold',
+                'Arial Unicode MS Bold'
+                ],
+                'text-variable-anchor': ['top'],
+                'text-radial-offset': 0.5,
+                "text-size": 12,
+                "text-allow-overlap": true,
+                },'paint': {
+                    "text-color": "#ffffff"
+                  }
+                });
             mapClick('alai');
         });
+        
 
         function mapClick(id){
             map.on('click', id.toString(), function (e) {
             map.flyTo({center: [74.37, 39.97], zoom:8});
             $('div.modal-active').attr('class','modal');
-            map.removeLayer('alai')
-            map.removeSource('alai')
-            map.addSource('alai', {
+            map.setLayoutProperty(id.toString(), 'visibility', 'none');
+            map.setLayoutProperty('fill_' + id.toString(), 'visibility', 'visible');
+            map.addSource('fill_'+ id.toString(), {
                 'type': 'geojson',
                 'data': '../data/regions/osh/alai.json'
             });
             map.addLayer({
-                'id': 'alai',
+                'id': 'fill_'+ id.toString(),
                 'type': 'fill',
                 'source': 'alai',
                 'paint': {
@@ -512,21 +533,8 @@ var popup = new mapboxgl.Popup({
             $("#close").click(() => {
                 $('div.modal').attr('class','modal modal-active');
                 map.flyTo({center: [75, 41.1], zoom:6});
-                map.removeLayer('alai')
-                map.removeSource('alai')
-                map.addSource('alai', {
-                    'type': 'geojson',
-                    'data': '../data/regions/osh/alai.json'
-                });
-                map.addLayer({
-                    'id': 'alai',
-                    'type': 'fill',
-                    'source': 'alai',
-                    'paint': {
-                    'fill-color': 'rgba(231, 76, 60,.5)',
-                    'fill-outline-color': 'rgba(44, 62, 80,1)'
-                    },
-                });
+                map.setLayoutProperty(id.toString(), 'visibility', 'visible');
+                map.setLayoutProperty('fill_' + id.toString(), 'visibility', 'none');
             });
         });
         
