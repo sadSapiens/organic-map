@@ -507,30 +507,38 @@ var popup = new mapboxgl.Popup({
                     "text-color": "#ffffff"
                   }
                 });
-            mapClick('alai');
+            mapClick(key, value);
         });
         
 
-        function mapClick(id){
+        function mapClick(id, source){
             map.on('click', id.toString(), function (e) {
-            map.flyTo({center: [74.37, 39.97], zoom:8});
+            map.doubleClickZoom.disable();
+            map.dragPan.disable();
+            map.scrollZoom.disable();
+            $('.modal__title > p').text(e.features[0].properties.title_ru.toString() + " район");
+            var avarageCoordinate = Math.round(e.features[0].geometry.coordinates[0].length/2)
+            map.flyTo({center: e.features[0].geometry.coordinates[0][avarageCoordinate], zoom:8});
             $('div.modal-active').attr('class','modal');
             map.setLayoutProperty(id.toString(), 'visibility', 'none');
             map.setLayoutProperty('fill_' + id.toString(), 'visibility', 'visible');
             map.addSource('fill_'+ id.toString(), {
                 'type': 'geojson',
-                'data': '../data/regions/osh/alai.json'
+                'data': source.toString()
             });
             map.addLayer({
                 'id': 'fill_'+ id.toString(),
                 'type': 'fill',
-                'source': 'alai',
+                'source': id.toString(),
                 'paint': {
                 'fill-color': 'rgba(46, 204, 113,.6)',
                 'fill-outline-color': 'rgba(236, 240, 241,1.0)'
                 },
             });
             $("#close").click(() => {
+                map.doubleClickZoom.enable();
+                map.dragPan.enable();
+                map.scrollZoom.enable();
                 $('div.modal').attr('class','modal modal-active');
                 map.flyTo({center: [75, 41.1], zoom:6});
                 map.setLayoutProperty(id.toString(), 'visibility', 'visible');
