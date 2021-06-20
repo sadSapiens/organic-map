@@ -196,12 +196,28 @@
   color: white;
 }
 
-.modal__label {
-  padding-left: 10px;
+.modal__label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.modal__label-elem {
+  width: 48%;
+  padding: 5px;
   margin-top: 30px;
   margin-bottom: 10px;
   font-weight: bold;
   position: relative;
+  border: 1px dotted #1abc9c;
+  transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.modal__label-elem:hover {
+  background-color: rgba(26, 188, 156, 0.7);
+  cursor: pointer;
+  color: white;
+  box-shadow: 4px 5px 0px rgba(10, 83, 69, 0.7);
 }
 
 .modal__descr {
