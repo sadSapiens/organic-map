@@ -4,7 +4,12 @@
       "FID": 20,
       "title_ru": "Тюпский",
       "pcode": "41702 225 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 79.50,
+      "position_lat":  42.7
+
     },
     "geometry": {
       "type": "Polygon",

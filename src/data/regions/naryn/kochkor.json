@@ -4,7 +4,11 @@
       "FID": 7,
       "title_ru": "Кочкорский",
       "pcode": "41704 235 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 76.63,
+      "position_lat":  42.15
     },
     "geometry": {
       "type": "Polygon",

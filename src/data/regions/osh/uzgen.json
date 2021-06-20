@@ -4,7 +4,12 @@
       "FID": 22,
       "title_ru": "Узгенский",
       "pcode": "41706 255 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 74.35,
+      "position_lat": 40.91
+
     },
     "geometry": {
       "type": "Polygon",

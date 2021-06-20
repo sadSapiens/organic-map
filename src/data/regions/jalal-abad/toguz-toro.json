@@ -4,7 +4,12 @@
       "FID": 18,
       "title_ru": "Тогуз-Тороуский",
       "pcode": "41703 223 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 74.81,
+      "position_lat":  41.44
+
     },
     "geometry": {
       "type": "Polygon",

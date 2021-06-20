@@ -4,7 +4,11 @@
       "FID": 14,
       "title_ru": "Кара-Кульжинский",
       "pcode": "41706 246 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 75.40,
+      "position_lat":  40.51
     },
     "geometry": {
       "type": "Polygon",

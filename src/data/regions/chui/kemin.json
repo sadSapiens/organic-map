@@ -4,7 +4,11 @@
       "FID": 11,
       "title_ru": "Кеминский",
       "pcode": "41708 213 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 90,
+      "zoom": 8,
+      "position_lng": 76.43,
+      "position_lat":  42.19
     },
     "geometry": {
       "type": "Polygon",

@@ -4,7 +4,11 @@
       "FID": 8,
       "title_ru": "Алайский",
       "pcode": "41706 207 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 74.45,
+      "position_lat":  39.92
     },
     "geometry": {
       "type": "Polygon",

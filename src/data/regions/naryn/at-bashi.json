@@ -4,7 +4,11 @@
       "FID": 0,
       "title_ru": "Ат-Башынский",
       "pcode": "41704 220 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 6.70,
+      "position_lng": 77.90,
+      "position_lat":  41.11
     },
     "geometry": {
       "type": "Polygon",

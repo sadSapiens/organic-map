@@ -4,7 +4,11 @@
       "FID": 31,
       "title_ru": "Жайылский",
       "pcode": "41708 209 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 74.34,
+      "position_lat":  42.54
     },
     "geometry": {
       "type": "MultiPolygon",

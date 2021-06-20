@@ -4,7 +4,11 @@
       "FID": 27,
       "title_ru": "Ала-Букинский",
       "pcode": "41703 204 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 71.77,
+      "position_lat":  41.53
     },
     "geometry": {
       "type": "Polygon",

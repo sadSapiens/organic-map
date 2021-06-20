@@ -4,7 +4,11 @@
       "FID": 37,
       "title_ru": "Ыссык-Атинский",
       "pcode": "41708 206 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 9,
+      "position_lng": 75.39,
+      "position_lat":  42.67
     },
     "geometry": {
       "type": "Polygon",

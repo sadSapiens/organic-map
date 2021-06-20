@@ -43,7 +43,8 @@ ul {
   right: 0;
   opacity: .7;
   transition: all .3s ease-in-out;
-  width: 250px;
+  width: 200px;
+  z-index: 2;
 }
 
 .logo:hover {
@@ -66,6 +67,7 @@ ul {
   background-color: white;
   box-shadow: 2px 2px 10px rgba(26, 188, 156, 0.7);
   overflow: hidden;
+  z-index: 2;
 }
 
 .modal__tabs-menu {
@@ -285,6 +287,20 @@ ul {
 .modal__descr p {
   margin-top: 10px;
   padding: 10px;
+}
+
+.active_close {
+  display: none;
+}
+
+.active_close-active {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 1;
 }
 
 @keyframes guideHover {
@@ -557,18 +573,6 @@ ul {
 
 .cover__filter-submenu-check {
   margin: 0;
-}
-
-.info {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: white;
-  width: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .slide-btn {

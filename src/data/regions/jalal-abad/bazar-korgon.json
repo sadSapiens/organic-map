@@ -4,7 +4,11 @@
       "FID": 26,
       "title_ru": "Базар-Коргонский",
       "pcode": "41703 207 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 73.58,
+      "position_lat":  41.34
     },
     "geometry": {
       "type": "Polygon",

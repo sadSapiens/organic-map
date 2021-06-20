@@ -4,7 +4,11 @@
       "FID": 16,
       "title_ru": "Жумгальский",
       "pcode": "41704 230 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 75.4,
+      "position_lat":  41.93
     },
     "geometry": {
       "type": "Polygon",

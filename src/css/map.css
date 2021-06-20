@@ -24,7 +24,8 @@
   right: 0;
   opacity: .7;
   transition: all .3s ease-in-out;
-  width: 250px;
+  width: 200px;
+  z-index: 2;
 }
 
 .logo:hover {

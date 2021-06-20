@@ -4,7 +4,11 @@
       "FID": 33,
       "title_ru": "Московский",
       "pcode": "41708 217 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 74.41,
+      "position_lat":  42.83
     },
     "geometry": {
       "type": "Polygon",

@@ -4,7 +4,12 @@
       "FID": 4,
       "title_ru": "Тонский",
       "pcode": "41702 220 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 77.54,
+      "position_lat":  42.19
+
     },
     "geometry": {
       "type": "Polygon",

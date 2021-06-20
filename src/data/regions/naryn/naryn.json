@@ -4,7 +4,12 @@
       "FID": 5,
       "title_ru": "Нарынский",
       "pcode": "41704 245 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 77.51,
+      "position_lat":  41.62
+
     },
     "geometry": {
       "type": "Polygon",

@@ -4,7 +4,12 @@
       "FID": 12,
       "title_ru": "Иссык-Кульский",
       "pcode": "41702 215 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 90,
+      "zoom": 8,
+      "position_lng": 77.10,
+      "position_lat": 42.47
+
     },
     "geometry": {
       "type": "Polygon",

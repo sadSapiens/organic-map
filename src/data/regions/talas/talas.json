@@ -4,7 +4,11 @@
     "FID": 13,
     "title_ru": "Таласский",
     "pcode": "41707 232 000 00 0",
-    "type": "d"
+    "type": "d",
+    "bearing": 0,
+    "zoom": 8,
+    "position_lng": 73.83,
+    "position_lat":  42.42
   },
   "geometry": {
     "type": "Polygon",

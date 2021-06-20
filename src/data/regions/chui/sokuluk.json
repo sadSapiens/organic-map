@@ -4,7 +4,11 @@
       "FID": 32,
       "title_ru": "Сокулукский",
       "pcode": "41708 222 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 74.82,
+      "position_lat":  42.71
     },
     "geometry": {
       "type": "Polygon",

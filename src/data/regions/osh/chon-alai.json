@@ -4,7 +4,11 @@
     "FID": 17,
     "title_ru": "Чон-Алайский",
     "pcode": "41706 259 000 00 0",
-    "type": "d"
+    "type": "d",
+    "bearing": 0,
+    "zoom": 8,
+    "position_lng": 73.08,
+    "position_lat":  39.62
   },
   "geometry": {
     "type": "Polygon",

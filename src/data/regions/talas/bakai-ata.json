@@ -4,7 +4,11 @@
       "FID": 29,
       "title_ru": "Бакай-Атинский",
       "pcode": "41707 220 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 72.48,
+      "position_lat":  42.28
     },
     "geometry": {
       "type": "Polygon",

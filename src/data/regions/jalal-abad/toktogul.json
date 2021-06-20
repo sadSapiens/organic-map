@@ -4,7 +4,12 @@
       "FID": 3,
       "title_ru": "Токтогульский",
       "pcode": "41703 225 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 74.1,
+      "position_lat":  41.85
+
     },
     "geometry": {
       "type": "Polygon",

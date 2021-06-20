@@ -4,7 +4,12 @@
       "FID": 21,
       "title_ru": "Ноокатский",
       "pcode": "41706 242 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 73.28,
+      "position_lat":  40.14
+
     },
     "geometry": {
       "type": "Polygon",

@@ -4,7 +4,11 @@
       "FID": 35,
       "title_ru": "Чуйский",
       "pcode": "41708 223 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 9,
+      "position_lng": 75.87,
+      "position_lat":  42.62
     },
     "geometry": {
       "type": "Polygon",

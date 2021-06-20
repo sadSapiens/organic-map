@@ -231,17 +231,7 @@
     }
 }
 
-.info {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    width: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .slide-btn {
     width: 60px;
@@ -257,3 +247,33 @@
         height: 50%;
     }
 }
+
+// .info{
+//     position: fixed;
+//     display: flex;
+//     flex-direction: column;
+//     top:10px;
+//     left: 50%;
+//     padding:5px;
+//     width: 200px;
+//     border: 2px solid white;
+//     background-color: rgba($color: #1abc9c, $alpha: 1);
+//     &_lng{
+//         color: white;
+//         &::before{
+//             content: 'Долгота: ';
+//         }
+//     }
+
+//     &_lat{
+//         color: white;
+//         &::before{
+//             content: 'Широта: ';
+//         }
+//     }
+// }
+
+// .all_info{
+//     position: absolute;
+//     opacity: 0;
+// }

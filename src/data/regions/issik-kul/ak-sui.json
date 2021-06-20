@@ -4,7 +4,11 @@
       "FID": 2,
       "title_ru": "Ак-Суйский",
       "pcode": "41702 205 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 80.34,
+      "position_lat":  42.23
     },
     "geometry": {
       "type": "Polygon",

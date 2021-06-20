@@ -4,7 +4,11 @@
       "FID": 9,
       "title_ru": "Баткенский",
       "pcode": "41705 214 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 71.85,
+      "position_lat":  39.76
     },
     "geometry": {
       "type": "MultiPolygon",

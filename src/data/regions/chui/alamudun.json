@@ -4,7 +4,11 @@
       "FID": 34,
       "title_ru": "Аламудунский",
       "pcode": "41708 203 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 75.12,
+      "position_lat":  42.82
     },
     "geometry": {
       "type": "Polygon",

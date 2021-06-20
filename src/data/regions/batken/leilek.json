@@ -4,7 +4,11 @@
       "FID": 24,
       "title_ru": "Лейлекский",
       "pcode": "41705 236 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 70.56,
+      "position_lat":  39.85
     },
     "geometry": {
       "type": "Polygon",

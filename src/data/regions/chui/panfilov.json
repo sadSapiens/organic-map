@@ -4,7 +4,11 @@
       "FID": 10,
       "title_ru": "Панфиловский",
       "pcode": "41708 219 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 75.08,
+      "position_lat": 42.4
     },
     "geometry": {
       "type": "MultiPolygon",

@@ -507,42 +507,49 @@ var popup = new mapboxgl.Popup({
                     "text-color": "#ffffff"
                   }
                 });
+
+                map.addSource('fill_'+ key.toString(), {
+                    'type': 'geojson',
+                    'data': value 
+                });
+                map.addLayer({
+                    'id': 'fill_'+ key.toString(),
+                    'type': 'fill',
+                    'source': key.toString(),
+                    'paint': {
+                    'fill-color': 'rgba(46, 204, 113,.6)',
+                    'fill-outline-color': 'rgba(236, 240, 241,1.0)'
+                    },
+                });
+            map.setLayoutProperty('fill_' + key.toString(), 'visibility', 'none');
             mapClick(key, value);
         });
         
 
         function mapClick(id, source){
             map.on('click', id.toString(), function (e) {
+            $('div.active_close').attr('class','active_close-active');
             map.doubleClickZoom.disable();
             map.dragPan.disable();
             map.scrollZoom.disable();
-            $('.modal__title > p').text(e.features[0].properties.title_ru.toString() + " район");
-            var avarageCoordinate = Math.round(e.features[0].geometry.coordinates[0].length/2)
-            map.flyTo({center: e.features[0].geometry.coordinates[0][avarageCoordinate], zoom:8});
+            $('.modal__title > p').text(e.features[0].properties.title_ru + " район");
+            map.flyTo({center: [e.features[0].properties.position_lng, e.features[0].properties.position_lat],
+                     zoom: e.features[0].properties.zoom, bearing: e.features[0].properties.bearing});
             $('div.modal-active').attr('class','modal');
             map.setLayoutProperty(id.toString(), 'visibility', 'none');
             map.setLayoutProperty('fill_' + id.toString(), 'visibility', 'visible');
-            map.addSource('fill_'+ id.toString(), {
-                'type': 'geojson',
-                'data': source.toString()
-            });
-            map.addLayer({
-                'id': 'fill_'+ id.toString(),
-                'type': 'fill',
-                'source': id.toString(),
-                'paint': {
-                'fill-color': 'rgba(46, 204, 113,.6)',
-                'fill-outline-color': 'rgba(236, 240, 241,1.0)'
-                },
-            });
             $("#close").click(() => {
+                $('div.active_close-active').attr('class','active_close');
                 map.doubleClickZoom.enable();
                 map.dragPan.enable();
                 map.scrollZoom.enable();
                 $('div.modal').attr('class','modal modal-active');
-                map.flyTo({center: [75, 41.1], zoom:6});
+                map.flyTo({center: [75, 41.1], zoom:6, bearing: 0});
                 map.setLayoutProperty(id.toString(), 'visibility', 'visible');
                 map.setLayoutProperty('fill_' + id.toString(), 'visibility', 'none');
+            });
+            $("#active_close").click(() => {
+                alert("Для взаимодействия с картой закройте модальное окно!")
             });
         });
         
@@ -550,7 +557,22 @@ var popup = new mapboxgl.Popup({
             map.getCanvas().style.cursor = '';
             popup.remove();
         });
-        
+
+        /*
+         * 
+         * Only for develop
+         * Script for showing coordinates
+         *  
+         */
+        // map.on('mousemove', function (e) {
+        //     document.getElementById('info_lng').innerHTML =
+        //     JSON.stringify(Math.floor(e.lngLat.lng * 100) / 100);
+        //     document.getElementById('info_lat').innerHTML =
+        //     JSON.stringify(Math.floor(e.lngLat.lat * 100) / 100);
+        //     document.getElementById('all_info').innerHTML =
+        //     JSON.stringify(Math.floor(e.lngLat.lng * 100) / 100 
+        //                   + ',' + Math.floor(e.lngLat.lat * 100) / 100);
+        // });
 }
 
 /*

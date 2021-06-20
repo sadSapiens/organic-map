@@ -4,7 +4,12 @@
       "FID": 19,
       "title_ru": "Аксыйский",
       "pcode": "41703 211 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 72.66,
+      "position_lat":  41.64
+
     },
     "geometry": {
       "type": "Polygon",

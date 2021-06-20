@@ -4,7 +4,12 @@
       "FID": 30,
       "title_ru": "Ноокенский",
       "pcode": "41703 215 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 73.03,
+      "position_lat":  41.29
+
     },
     "geometry": {
       "type": "Polygon",

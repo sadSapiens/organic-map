@@ -4,7 +4,12 @@
       "FID": 28,
       "title_ru": "Кара-Буринский",
       "pcode": "41707 215 000 00 0",
-      "type": "d"
+      "type": "d",
+      "bearing": 0,
+      "zoom": 8,
+      "position_lng": 71.83,
+      "position_lat":  42.38
+
     },
     "geometry": {
       "type": "Polygon",
