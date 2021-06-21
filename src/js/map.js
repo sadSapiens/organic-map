@@ -452,11 +452,6 @@ $(document).ready(function() {
         }
     });
 
-function removeLayers(){
-    for (let index = 0; index <= 4; index++) {
-        if (map.getLayer(index.toString())) map.removeLayer(index.toString());
-    }
-}
 /*
 *
 * Function for map load
@@ -517,10 +512,29 @@ var popup = new mapboxgl.Popup({
                     'type': 'fill',
                     'source': key.toString(),
                     'paint': {
-                    'fill-color': 'rgba(46, 204, 113,.6)',
+                    'fill-color': 'rgba(46, 204, 113,1)',
                     'fill-outline-color': 'rgba(236, 240, 241,1.0)'
                     },
                 });
+                map.addLayer({
+                    'id': "symbol_" + 'fill_' + key.toString(),
+                    'type': 'symbol',
+                    'source': key.toString(),
+                    'layout': {
+                    // get the title name from the source's "title" property
+                    'text-field': ['get', 'title_ru'],
+                    'text-font': [
+                    'Open Sans Semibold',
+                    'Arial Unicode MS Bold'
+                    ],
+                    'text-variable-anchor': ['top'],
+                    'text-radial-offset': 0.5,
+                    "text-size": 12,
+                    "text-allow-overlap": true,
+                    },'paint': {
+                        "text-color": "#ffffff"
+                      }
+                    });
             map.setLayoutProperty('fill_' + key.toString(), 'visibility', 'none');
             mapClick(key, value);
         });
@@ -529,27 +543,20 @@ var popup = new mapboxgl.Popup({
         function mapClick(id, source){
             map.on('click', id.toString(), function (e) {
             $('div.active_close').attr('class','active_close-active');
-            map.doubleClickZoom.disable();
-            map.dragPan.disable();
-            map.scrollZoom.disable();
             $('.modal__title > p').text(e.features[0].properties.title_ru + " район");
             map.flyTo({center: [e.features[0].properties.position_lng, e.features[0].properties.position_lat],
                      zoom: e.features[0].properties.zoom, bearing: e.features[0].properties.bearing});
             $('div.modal-active').attr('class','modal');
-            map.setLayoutProperty(id.toString(), 'visibility', 'none');
+            Object.entries(regions).forEach(([key, value]) => {
+                map.setLayoutProperty(id.toString(), 'visibility', 'visible');
+                map.setLayoutProperty('fill_' + key.toString(), 'visibility', 'none');
+            });
             map.setLayoutProperty('fill_' + id.toString(), 'visibility', 'visible');
             $("#close").click(() => {
-                $('div.active_close-active').attr('class','active_close');
-                map.doubleClickZoom.enable();
-                map.dragPan.enable();
-                map.scrollZoom.enable();
                 $('div.modal').attr('class','modal modal-active');
-                map.flyTo({center: [75, 41.1], zoom:6, bearing: 0});
+                map.flyTo({center: [75, 41.1], zoom:6, bearing: 0, pitch: 0});
                 map.setLayoutProperty(id.toString(), 'visibility', 'visible');
                 map.setLayoutProperty('fill_' + id.toString(), 'visibility', 'none');
-            });
-            $("#active_close").click(() => {
-                alert("Для взаимодействия с картой закройте модальное окно!")
             });
         });
         
